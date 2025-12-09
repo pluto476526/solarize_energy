@@ -14,10 +14,8 @@ int loads_init(load_manager_t* lm, const system_config_t* config) {
 
     memset(lm, 0, sizeof(load_manager_t));
 
-    // Set load count
     lm->load_count = config->load_count;
 
-    // Copy definitions
     for (int i = 0; i < lm->load_count && i < MAX_CONTROLLABLE_LOADS; i++) {
         memcpy(&lm->loads[i], &config->loads[i], sizeof(load_definition_t));
 
@@ -26,13 +24,11 @@ int loads_init(load_manager_t* lm, const system_config_t* config) {
         lm->loads[i].current_state = false;
     }
 
-    // Initialize priority tracking
-    for (int i = 0; i < lm->load_count; i++) {
-        lm->priority_power[i] = 0;
-        lm->priority_count[i] = 0;
+    for (int p = 0; p < 5; p++) {
+        lm->priority_power[p] = 0;
+        lm->priority_count[p] = 0;
     }
 
-    // Count loads by priority
     for (int i = 0; i < lm->load_count; i++) {
         int p = lm->loads[i].priority;
 
@@ -42,7 +38,6 @@ int loads_init(load_manager_t* lm, const system_config_t* config) {
         }
     }
 
-    // Set shedding parameters
     lm->shedding_active = false;
     lm->shed_power_target = 0;
     lm->shedding_start_time = 0;
@@ -83,7 +78,7 @@ void loads_update_measurements(load_manager_t* lm, system_measurements_t* measur
     measurements->load_power_critical = critical_power;
     measurements->load_power_deferrable = deferrable_power;
 
-    LOG_DEBUG("Load power: %d", measurements->load_power_total);
+    loads_update_energy_consumed(lm);
 }
 
 bool loads_manage_shedding(load_manager_t* lm, double available_power, double total_load,
@@ -293,7 +288,7 @@ void loads_log_status(const load_manager_t* lm) {
     printf("Deferred Power: %.0f W\n", lm->deferred_power);
     printf("Shed Events: %u\n", lm->shed_event_count);
     printf("Restart Events: %u\n", lm->restart_event_count);
-    printf("Total Energy: %.2f kWh\n", lm->total_energy_consumed / 1000.0);
+    printf("Total Energy Needed: %.2f kWh\n", loads_calculate_power_needed(lm));
     
     printf("\nLoad Details:\n");
     printf("ID                   Priority State     Power(W) Deferrable\n");
@@ -327,6 +322,28 @@ double loads_calculate_power_needed(const load_manager_t* lm) {
     
     return power_needed;
 }
+
+
+/* Update total energy consumed for all loads (in watt-seconds) */
+void loads_update_energy_consumed(load_manager_t* lm) {
+    if (!lm) return;
+
+    time_t now = time(NULL);
+    double energy_consumed;
+
+    for (int i = 0; i < lm->load_count; i++) {
+        load_definition_t* load = &lm->loads[i];
+
+        /* Only count energy for loads that are ON */
+        if (load->current_state) {
+            double duration = difftime(now, load->last_state_change);   // seconds
+            energy_consumed += load->rated_power * duration;     // W * s
+            lm->total_energy_consumed = energy_consumed / 3600 / 1000;        // KWh
+            load->last_state_change = now;                              // reset timer
+        }
+    }
+}
+
 
 bool loads_can_shed_load(const load_manager_t* lm, int load_index, double available_power) {
     if (!lm || load_index < 0 || load_index >= lm->load_count || available_power >= 40.0) {

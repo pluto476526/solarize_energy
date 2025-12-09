@@ -61,6 +61,7 @@ void loads_prioritize_deferrable(load_manager_t* lm, double excess_power);
 bool loads_check_timing_constraints(const load_manager_t* lm, int load_index);
 void loads_log_status(const load_manager_t* lm);
 double loads_calculate_power_needed(const load_manager_t* lm);
+void loads_update_energy_consumed(load_manager_t* lm);
 bool loads_can_shed_load(const load_manager_t* lm, int load_index, double available_power);
 
 #endif /* LOADS_H */

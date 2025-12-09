@@ -2,6 +2,16 @@
 #define BATTERY_H
 
 #include "core.h"
+#include <time.h>
+#include <stdbool.h>
+
+/* Chemistry enum for supported battery types */
+typedef enum {
+    BAT_CHEM_LFP = 0,
+    BAT_CHEM_NMC,
+    BAT_CHEM_LEAD_ACID
+} battery_chemistry_e;
+
 
 /* Battery management states */
 typedef enum {
@@ -24,57 +34,71 @@ typedef enum {
 
 /* Battery management context */
 typedef struct {
-    battery_state_t state;
-    charge_stage_t charge_stage;
-    
+    /* Configuration & topology */
+    battery_chemistry_e chemistry;
     battery_bank_t banks[MAX_BATTERY_BANKS];
-    int active_bank_count;
-    
+    int bank_count;                 /* configured banks */
+    int active_bank_count;          /* number of banks in service */
+
+    /* Time & coulomb counting stored in object (no statics) */
+    double accumulated_ah;          /* Ah (coulomb counter) */
+    time_t last_update_ts;          /* last timestamp for coulomb integration */
+
     /* State of Charge estimation */
-    double soc_coulomb_counting;    // Coulomb counting method
-    double soc_voltage_based;       // Voltage-based method
-    double soc_estimated;           // Final estimated SOC
-    double soc_smoothed;           // Smoothed SOC for control
-    
-    /* Battery parameters */
-    double capacity_remaining;      // Remaining capacity (Wh)
-    double capacity_nominal;        // Nominal capacity (Wh)
-    double internal_resistance;     // Internal resistance (Ohms)
-    double health_percentage;       // State of Health (%)
-    
-    /* Thermal management */
-    double temperature;
-    double temperature_ambient;
+    double soc_coulomb;             /* % from coulomb counting */
+    double soc_voltage;             /* % from voltage mapping */
+    double soc_estimated;           /* fusion result % */
+    double soc_smoothed;            /* smoothed for control */
+
+    /* Capacity and health */
+    double capacity_nominal_wh;     /* total Wh across active banks */
+    double capacity_remaining_wh;   /* Wh */
+    double health_percent;          /* % */
+
+    /* Thermal */
+    double temperature_c;           /* measured pack temperature */
+    double ambient_temperature_c;
     bool cooling_active;
     bool heating_active;
-    
-    /* Charge/discharge limits */
-    double max_charge_current;
-    double max_discharge_current;
-    double max_charge_power;
-    double max_discharge_power;
-    
+
+    /* Limits */
+    double max_charge_current_a;    /* A */
+    double max_discharge_current_a; /* A */
+    double max_charge_power_w;      /* W */
+    double max_discharge_power_w;   /* W */
+
     /* Statistics */
-    double total_charge_energy;
-    double total_discharge_energy;
-    double cycle_depth_accumulated;
+    double total_charge_wh;         /* Wh */
+    double total_discharge_wh;      /* Wh */
+    double cycle_depth_accumulated; /* for cycle estimation */
     int cycle_count;
-    
-    /* Timing */
-    time_t absorption_start_time;
-    time_t float_start_time;
-    double absorption_duration;
-    double float_duration;
-    
-    /* Fault detection */
+
+    /* Timing for charge stages */
+    time_t absorption_start_ts;
+    time_t float_start_ts;
+    double absorption_duration_s;
+    double float_duration_s;
+
+    /* Faults */
     bool overvoltage_fault;
     bool undervoltage_fault;
     bool overcurrent_fault;
     bool overtemperature_fault;
-    char last_fault_reason[64];
+    char last_fault_reason[128];
+
+    /* State machine */
+    battery_state_t state;
+    charge_stage_t charge_stage;
+
+    /* Tuning (exposed for tests & runtime adjustment) */
+    double soc_voltage_weight;      /* 0..1 weight for coulomb vs voltage fusion */
+    double soc_smoothing_alpha;     /* 0..1 smoothing factor */
+    double min_operating_soc;       /* minimum allowed SOC before hard limits (%) */
+    double max_operating_soc;       /* maximum allowed SOC (%) */
+
 } battery_system_t;
 
-/* Function prototypes */
+/* Public API - function signatures preserved */
 int battery_init(battery_system_t* bat, const system_config_t* config);
 void battery_update_measurements(battery_system_t* bat, system_measurements_t* measurements);
 double battery_calculate_soc(battery_system_t* bat, system_measurements_t* measurements);

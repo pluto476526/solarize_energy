@@ -176,16 +176,17 @@ typedef struct {
     double efficiency;          // String efficiency (%)
 } pv_string_t;
 
-// Battery bank info
+// Battery bank description (one physical bank)
 typedef struct {
-    char bank_id[32];           // Battery bank identifier
-    double capacity_kwh;        // Total capacity (kWh)
-    double max_charge_rate;     // Max charge power (W)
-    double max_discharge_rate;  // Max discharge power (W)
-    double voltage_nominal;     // Nominal voltage (V)
-    double temp_nominal;        // Nominal temperature (°C)
-    int cycle_count;            // Number of cycles
-    time_t last_full_charge;    // Last full charge time
+    char bank_id[32];
+    double nominal_voltage;     // V (e.g. 48.0)
+    int cells_in_series;           // cells in series (S)
+    int parallel_strings;       // parallel strings (P)
+    double capacity_wh;         // nominal energy per bank in Wh (e.g. 10000 Wh)
+    double max_charge_power;    // W
+    double max_discharge_power; // W
+    int cycle_count;
+    time_t last_full_charge_ts;
 } battery_bank_t;
 
 // System config structure
@@ -201,6 +202,8 @@ typedef struct {
     double battery_soc_max;      // Maximum SOC for charge
     double battery_temp_max;     // Maximum temperature
     double battery_reserve_soc;  // Reserve SOC for outages
+    battery_bank_t batteries[MAX_BATTERY_BANKS];
+    int bank_count;
     
     // PV settings
     double pv_curtail_start;     // SOC level to start PV curtailment

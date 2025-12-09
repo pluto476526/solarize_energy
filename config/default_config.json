@@ -12,6 +12,60 @@
   "control_interval": 1.0,
   "measurement_interval": 0.5,
   "hysteresis": 2.0,
+  "batteries": {
+    "chemistry": "LiFePO4",
+    "nominal_voltage": 51.2,
+    "capacity_nominal": 20000.0,
+    "max_charge_current_total": 200.0,
+    "max_discharge_current_total": 250.0,
+    "charge_absorption_voltage": 56.4,
+    "charge_float_voltage": 54.0,
+    "charge_equalize_voltage": 57.6,
+    "absorption_duration": 7200.0,
+    "float_duration": 14400.0,
+    "thermal": {
+      "temp_max": 45.0,
+      "temp_min": -5.0,
+      "cooling_start": 35.0,
+      "cooling_stop": 28.0,
+      "heating_start": 5.0,
+      "heating_stop": 12.0
+    },
+    "banks": [
+      {
+        "bank_id": "BANK_1",
+        "capacity_wh": 5000.0,
+        "nominal_voltage": 2000.0,
+        "max_charge_current": 50.0,
+        "max_discharge_current": 60.0,
+        "cells_in_series": 13
+      },
+      {
+        "bank_id": "BANK_2",
+        "capacity_wh": 5000.0,
+        "nominal_voltage": 2000.0,
+        "max_charge_current": 50.0,
+        "max_discharge_current": 60.0,
+        "cells_in_series": 3
+      },
+      {
+        "bank_id": "BANK_3",
+        "capacity_wh": 5000.0,
+        "nominal_voltage": 2000.0,
+        "max_charge_current": 50.0,
+        "max_discharge_current": 60.0,
+        "cells_in_series": 6
+      },
+      {
+        "bank_id": "BANK_4",
+        "capacity_wh": 5000.0,
+        "nominal_voltage": 2000.0,
+        "max_charge_current": 50.0,
+        "max_discharge_current": 60.0,
+        "cells_in_series": 2
+      }
+    ]
+  },
   "loads": [
     {
       "id": "refrigerator",

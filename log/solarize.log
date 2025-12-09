@@ -9390,3 +9390,1129 @@
 [2025-12-09 02:58:34] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 140
 [2025-12-09 02:58:34] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
 [2025-12-09 02:58:34] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:25:00] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:25:00] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:25:00] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:25:00] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:25:00] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:25:00] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:25:00] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:25:01] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:25:02] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:02] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:25:03] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:03] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:25:04] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:04] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:25:05] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:05] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:25:06] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:06] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 03:25:07] [solarize] [DEBUG] (src/loads.c:86) Load power: 0
+[2025-12-09 03:25:07] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 03:25:08] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:25:08] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 8
+[2025-12-09 03:25:08] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:25:08] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:28:12] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:28:12] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:28:12] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:28:12] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:28:12] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:28:12] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:28:12] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:28:13] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:13] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:13] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:13] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:28:13] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:28:14] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:14] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:14] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:14] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:28:14] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:28:15] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:15] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:15] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:15] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:28:15] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:28:16] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:16] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:16] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:16] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:28:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:28:17] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:17] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:17] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:17] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:28:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:28:18] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:18] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:18] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:28:18] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:28:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 03:28:19] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:28:19] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 7
+[2025-12-09 03:28:19] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:28:19] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:29:25] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:29:25] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:29:25] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:29:25] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:29:25] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:29:25] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:29:25] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:29:26] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:26] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:26] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:26] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:29:26] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:29:27] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:27] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:27] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:27] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:29:27] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:29:28] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:28] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:28] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:28] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:29:28] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:29:29] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:29] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:29] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:29] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:29:29] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/loads.c:71) Load power: 0
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:29:30] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 6
+[2025-12-09 03:29:30] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:29:30] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:30:30] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:30:30] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:30:30] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:30:30] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:30:30] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:30:30] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:30:30] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:30:31] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:31] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:31] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:31] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:31] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:30:32] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:32] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:32] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:32] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:32] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:30:33] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:33] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:33] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:33] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:33] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:30:34] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:34] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:34] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:34] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:30:35] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:35] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:35] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:35] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:30:36] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:36] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:36] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:36] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:36] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 03:30:37] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:37] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:37] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:37] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:37] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 03:30:38] [solarize] [DEBUG] (src/loads.c:71) Load 0 power: 0
+[2025-12-09 03:30:38] [solarize] [DEBUG] (src/loads.c:71) Load 1 power: -1402743584
+[2025-12-09 03:30:38] [solarize] [DEBUG] (src/loads.c:71) Load 2 power: -1402743584
+[2025-12-09 03:30:38] [solarize] [DEBUG] (src/loads.c:87) Load power: 0
+[2025-12-09 03:30:38] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 03:30:39] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:30:39] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 9
+[2025-12-09 03:30:39] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:30:39] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:33:54] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:33:54] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:33:54] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:33:54] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/loads.c:42) refrigerator rated_power: 1896039873
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/loads.c:42) lights_kitchen rated_power: -1279101184
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/loads.c:42) water_heater rated_power: -1279101184
+[2025-12-09 03:33:54] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:33:54] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:33:54] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:33:55] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:33:55] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:33:55] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:33:55] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:33:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:33:56] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:33:56] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:33:56] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:33:56] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:33:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:33:57] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:33:57] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:33:57] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:33:57] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:33:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:33:58] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:33:58] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:33:58] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:33:58] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:33:58] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:33:59] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:33:59] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:33:59] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:33:59] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:33:59] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:34:00] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:34:00] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:34:00] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:34:00] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:34:00] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 03:34:01] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:34:01] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:34:01] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:34:01] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:34:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/loads.c:72) Load 0 power: 0
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/loads.c:72) Load 1 power: -1279101280
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/loads.c:72) Load 2 power: -1279101280
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/loads.c:88) Load power: 0
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 03:34:02] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 9
+[2025-12-09 03:34:02] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:34:02] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:43:15] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:43:15] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:43:15] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:43:15] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/loads.c:39) refrigerator rated_power: -1810151999
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/loads.c:39) lights_kitchen rated_power: 1401592528
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/loads.c:39) water_heater rated_power: 1401592528
+[2025-12-09 03:43:15] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:43:15] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:43:15] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:43:16] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:16] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:16] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:16] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:43:17] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:17] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:17] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:17] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:43:18] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:18] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:18] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:18] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:43:19] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:19] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:19] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:19] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:19] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:43:20] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:20] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:20] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:20] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:20] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:43:21] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:21] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:21] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:21] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:21] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 03:43:22] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:43:22] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1401592432
+[2025-12-09 03:43:22] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1401592432
+[2025-12-09 03:43:22] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:43:22] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 03:43:23] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:43:23] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 8
+[2025-12-09 03:43:23] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:43:23] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:44:33] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:44:33] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:44:33] [solarize] [INFO] (src/config.c:638) System defaults set
+[2025-12-09 03:44:33] [solarize] [INFO] (src/config.c:598) JSON parsed. 3 loads.
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/loads.c:39) refrigerator rated_power: -570210879
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/loads.c:39) lights_kitchen rated_power: 470045920
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/loads.c:39) water_heater rated_power: 470045920
+[2025-12-09 03:44:33] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:44:33] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:44:33] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:44:34] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:44:34] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 470045824
+[2025-12-09 03:44:34] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 470045824
+[2025-12-09 03:44:34] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:44:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:44:35] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:44:35] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 470045824
+[2025-12-09 03:44:35] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 470045824
+[2025-12-09 03:44:35] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:44:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:44:36] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:44:36] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 470045824
+[2025-12-09 03:44:36] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 470045824
+[2025-12-09 03:44:36] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:44:36] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:44:37] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:44:37] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 470045824
+[2025-12-09 03:44:37] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 470045824
+[2025-12-09 03:44:37] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:44:37] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 470045824
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 470045824
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 03:44:38] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 6
+[2025-12-09 03:44:38] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:44:38] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 03:47:40] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 03:47:40] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 03:47:40] [solarize] [INFO] (src/config.c:639) System defaults set
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: -1439450216
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: -1439450232
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: -1439450232
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) refrigerator rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: -1439450216
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: -1439450232
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: -1439450240
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) lights_kitchen rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: -1439450216
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: -1439450240
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: -1439450240
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: 0
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/config.c:241) water_heater rated power: 0
+[2025-12-09 03:47:40] [solarize] [INFO] (src/config.c:599) JSON parsed. 3 loads.
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/loads.c:39) refrigerator rated_power: 65226177
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/loads.c:39) lights_kitchen rated_power: 1252839152
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/loads.c:39) water_heater rated_power: 1252839152
+[2025-12-09 03:47:40] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 03:47:40] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 03:47:40] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 03:47:41] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:47:41] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1252839056
+[2025-12-09 03:47:41] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1252839056
+[2025-12-09 03:47:41] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:47:41] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 03:47:42] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:47:42] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1252839056
+[2025-12-09 03:47:42] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1252839056
+[2025-12-09 03:47:42] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:47:42] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 03:47:43] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:47:43] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1252839056
+[2025-12-09 03:47:43] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1252839056
+[2025-12-09 03:47:43] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:47:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1252839056
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1252839056
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 03:47:44] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 5
+[2025-12-09 03:47:44] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 03:47:44] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:07:11] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:07:11] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:07:11] [solarize] [INFO] (src/config.c:288) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/loads.c:39) refrigerator rated_power: 52905409
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/loads.c:39) lights_kitchen rated_power: -102389440
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/loads.c:39) water_heater rated_power: -102389440
+[2025-12-09 04:07:11] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:07:11] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:07:11] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:07:12] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:12] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:12] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:12] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:12] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:07:13] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:13] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:13] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:13] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:13] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:07:14] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:14] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:14] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:14] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:14] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:07:15] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:15] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:15] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:15] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:15] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:07:16] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:16] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:16] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:16] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:07:17] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:17] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:17] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:17] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: -102389536
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: -102389536
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:07:18] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 8
+[2025-12-09 04:07:18] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:07:18] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:15:15] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:15:15] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:15:15] [solarize] [INFO] (src/config.c:288) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/loads.c:39) refrigerator rated_power: 150.000000
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/loads.c:39) lights_kitchen rated_power: 100.000000
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/loads.c:39) water_heater rated_power: 13000.000000
+[2025-12-09 04:15:15] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:15:15] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:15:15] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:15:16] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:15:16] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1160551744
+[2025-12-09 04:15:16] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1160551744
+[2025-12-09 04:15:16] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:15:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:15:17] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:15:17] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1160551744
+[2025-12-09 04:15:17] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1160551744
+[2025-12-09 04:15:17] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:15:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:15:18] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 0
+[2025-12-09 04:15:18] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 1160551744
+[2025-12-09 04:15:18] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 1160551744
+[2025-12-09 04:15:18] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:15:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:15:19] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:15:19] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 4
+[2025-12-09 04:15:19] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:15:19] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:16:39] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:16:39] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:16:39] [solarize] [INFO] (src/config.c:288) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/loads.c:39) refrigerator rated_power: 150.000000
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/loads.c:39) lights_kitchen rated_power: 100.000000
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/loads.c:39) water_heater rated_power: 13000.000000
+[2025-12-09 04:16:39] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:16:39] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:16:39] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:16:40] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:40] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:40] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:40] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:40] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:16:41] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:41] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:41] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:41] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:41] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:16:42] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:42] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:42] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:42] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:42] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:16:43] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:43] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:43] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:43] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:16:44] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:44] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:44] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:44] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:16:45] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:45] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:45] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:45] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:45] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:16:46] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:46] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:46] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:46] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:46] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:16:47] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:47] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:47] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:47] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:47] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 04:16:48] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:48] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:48] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:48] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:48] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 9
+[2025-12-09 04:16:49] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:49] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:49] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:49] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:49] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 10
+[2025-12-09 04:16:50] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:50] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:50] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:50] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:50] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 11
+[2025-12-09 04:16:51] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:51] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:51] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:51] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:51] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 12
+[2025-12-09 04:16:52] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:52] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:52] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:52] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:52] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 13
+[2025-12-09 04:16:53] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:53] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:53] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:53] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:53] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 14
+[2025-12-09 04:16:54] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:54] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:54] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:54] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:54] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 15
+[2025-12-09 04:16:55] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:55] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:55] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:55] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 16
+[2025-12-09 04:16:56] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:56] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:56] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:56] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 17
+[2025-12-09 04:16:57] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:57] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:57] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:57] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 18
+[2025-12-09 04:16:58] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:58] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:58] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:58] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:58] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 19
+[2025-12-09 04:16:59] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:16:59] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:16:59] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:16:59] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:16:59] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 20
+[2025-12-09 04:17:00] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:17:00] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:17:00] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:17:00] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:17:00] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 21
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/loads.c:68) Load 0 power: 150.000000
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/loads.c:68) Load 1 power: 100.000000
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/loads.c:68) Load 2 power: 13000.000000
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/loads.c:84) Load power: 0
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 22
+[2025-12-09 04:17:01] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 23
+[2025-12-09 04:17:01] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:17:01] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:18:30] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:18:30] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:18:30] [solarize] [INFO] (src/config.c:288) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 04:18:30] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:18:30] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:18:30] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:18:31] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:31] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:18:32] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:32] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:18:33] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:33] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:18:34] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:18:35] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:18:36] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:36] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:18:37] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:37] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:18:38] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:38] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 04:18:39] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:39] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 9
+[2025-12-09 04:18:40] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:40] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 10
+[2025-12-09 04:18:41] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:41] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 11
+[2025-12-09 04:18:42] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:42] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 12
+[2025-12-09 04:18:43] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 13
+[2025-12-09 04:18:44] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 14
+[2025-12-09 04:18:45] [solarize] [DEBUG] (src/loads.c:82) Load power: 13250.000000
+[2025-12-09 04:18:45] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 15
+[2025-12-09 04:18:45] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:18:45] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 16
+[2025-12-09 04:18:45] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:18:45] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:39:32] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:39:32] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:39:32] [solarize] [INFO] (src/config.c:289) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 04:39:32] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:39:32] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:39:32] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:39:33] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:39:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:39:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:39:36] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:39:37] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:39:38] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:39:39] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:39:40] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 04:39:41] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 9
+[2025-12-09 04:39:42] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 10
+[2025-12-09 04:39:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 11
+[2025-12-09 04:39:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 12
+[2025-12-09 04:39:45] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 13
+[2025-12-09 04:39:46] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 14
+[2025-12-09 04:39:47] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 15
+[2025-12-09 04:39:48] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 16
+[2025-12-09 04:39:49] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 17
+[2025-12-09 04:39:50] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 18
+[2025-12-09 04:39:51] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 19
+[2025-12-09 04:39:52] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 20
+[2025-12-09 04:39:53] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 21
+[2025-12-09 04:39:54] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 22
+[2025-12-09 04:39:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 23
+[2025-12-09 04:39:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 24
+[2025-12-09 04:39:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 25
+[2025-12-09 04:39:58] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 26
+[2025-12-09 04:39:59] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 27
+[2025-12-09 04:40:00] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 28
+[2025-12-09 04:40:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 29
+[2025-12-09 04:40:02] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 30
+[2025-12-09 04:40:03] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 31
+[2025-12-09 04:40:04] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 32
+[2025-12-09 04:40:05] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 33
+[2025-12-09 04:40:06] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 34
+[2025-12-09 04:40:07] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 35
+[2025-12-09 04:40:08] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 36
+[2025-12-09 04:40:09] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 37
+[2025-12-09 04:40:10] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 38
+[2025-12-09 04:40:11] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 39
+[2025-12-09 04:40:12] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 40
+[2025-12-09 04:40:13] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 41
+[2025-12-09 04:40:14] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 42
+[2025-12-09 04:40:15] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 43
+[2025-12-09 04:40:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 44
+[2025-12-09 04:40:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 45
+[2025-12-09 04:40:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 46
+[2025-12-09 04:40:19] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 47
+[2025-12-09 04:40:20] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 48
+[2025-12-09 04:40:21] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 49
+[2025-12-09 04:40:22] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 50
+[2025-12-09 04:40:23] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 51
+[2025-12-09 04:40:24] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 52
+[2025-12-09 04:40:25] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 53
+[2025-12-09 04:40:26] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 54
+[2025-12-09 04:40:27] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 55
+[2025-12-09 04:40:28] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 56
+[2025-12-09 04:40:29] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 57
+[2025-12-09 04:40:30] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 58
+[2025-12-09 04:40:31] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 59
+[2025-12-09 04:40:32] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 60
+[2025-12-09 04:40:33] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 61
+[2025-12-09 04:40:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 62
+[2025-12-09 04:40:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 63
+[2025-12-09 04:40:36] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 64
+[2025-12-09 04:40:37] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 65
+[2025-12-09 04:40:38] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 66
+[2025-12-09 04:40:39] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 67
+[2025-12-09 04:40:40] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 68
+[2025-12-09 04:40:41] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 69
+[2025-12-09 04:40:42] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 70
+[2025-12-09 04:40:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 71
+[2025-12-09 04:40:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 72
+[2025-12-09 04:40:45] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 73
+[2025-12-09 04:40:46] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 74
+[2025-12-09 04:40:47] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 75
+[2025-12-09 04:40:48] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 76
+[2025-12-09 04:40:49] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 77
+[2025-12-09 04:40:50] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 78
+[2025-12-09 04:40:51] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 79
+[2025-12-09 04:40:52] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 80
+[2025-12-09 04:40:53] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 81
+[2025-12-09 04:40:54] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 82
+[2025-12-09 04:40:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 83
+[2025-12-09 04:40:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 84
+[2025-12-09 04:40:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 85
+[2025-12-09 04:40:58] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 86
+[2025-12-09 04:40:59] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 87
+[2025-12-09 04:41:00] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 88
+[2025-12-09 04:41:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 89
+[2025-12-09 04:41:02] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 90
+[2025-12-09 04:41:03] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 91
+[2025-12-09 04:41:04] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 92
+[2025-12-09 04:41:05] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 93
+[2025-12-09 04:41:06] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 94
+[2025-12-09 04:41:07] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 95
+[2025-12-09 04:41:08] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 96
+[2025-12-09 04:41:09] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 97
+[2025-12-09 04:41:10] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 98
+[2025-12-09 04:41:11] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 99
+[2025-12-09 04:41:12] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 100
+[2025-12-09 04:41:13] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 101
+[2025-12-09 04:41:14] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 102
+[2025-12-09 04:41:15] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 103
+[2025-12-09 04:41:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 104
+[2025-12-09 04:41:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 105
+[2025-12-09 04:41:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 106
+[2025-12-09 04:41:19] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 107
+[2025-12-09 04:41:20] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 108
+[2025-12-09 04:41:21] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 109
+[2025-12-09 04:41:22] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 110
+[2025-12-09 04:41:23] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 111
+[2025-12-09 04:41:24] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 112
+[2025-12-09 04:41:25] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 113
+[2025-12-09 04:41:26] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 114
+[2025-12-09 04:41:27] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 115
+[2025-12-09 04:41:27] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:41:27] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 116
+[2025-12-09 04:41:27] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:41:27] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:50:30] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:50:30] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:50:30] [solarize] [INFO] (src/config.c:289) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:37) Initializing batteries 1
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:40) Initializing batteries
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_1
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_2
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_3
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:59) BANK BANK_4
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:63) BANK_4
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/battery.c:86) Battery init completed
+[2025-12-09 04:50:30] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:50:30] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:50:30] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:50:31] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:50:32] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:50:33] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:50:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:50:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:50:36] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:50:37] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:50:38] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 04:50:39] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 9
+[2025-12-09 04:50:40] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 10
+[2025-12-09 04:50:41] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 11
+[2025-12-09 04:50:42] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 12
+[2025-12-09 04:50:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 13
+[2025-12-09 04:50:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 14
+[2025-12-09 04:50:45] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 15
+[2025-12-09 04:50:46] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 16
+[2025-12-09 04:50:47] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 17
+[2025-12-09 04:50:48] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 18
+[2025-12-09 04:50:49] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 19
+[2025-12-09 04:50:50] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 20
+[2025-12-09 04:50:51] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 21
+[2025-12-09 04:50:52] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 22
+[2025-12-09 04:50:53] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 23
+[2025-12-09 04:50:54] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 24
+[2025-12-09 04:50:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 25
+[2025-12-09 04:50:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 26
+[2025-12-09 04:50:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 27
+[2025-12-09 04:50:58] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 28
+[2025-12-09 04:50:59] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 29
+[2025-12-09 04:51:00] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 30
+[2025-12-09 04:51:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 31
+[2025-12-09 04:51:02] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 32
+[2025-12-09 04:51:03] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 33
+[2025-12-09 04:51:04] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 34
+[2025-12-09 04:51:05] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 35
+[2025-12-09 04:51:06] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 36
+[2025-12-09 04:51:07] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 37
+[2025-12-09 04:51:08] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 38
+[2025-12-09 04:51:09] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 39
+[2025-12-09 04:51:10] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 40
+[2025-12-09 04:51:11] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 41
+[2025-12-09 04:51:12] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 42
+[2025-12-09 04:51:13] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 43
+[2025-12-09 04:51:14] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 44
+[2025-12-09 04:51:14] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:51:14] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 45
+[2025-12-09 04:51:14] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:51:14] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:54:46] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:54:46] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:54:46] [solarize] [INFO] (src/config.c:289) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:35) Initializing batteries 1
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:38) Initializing batteries
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_1
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_2
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_3
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_4
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:61) BANK_4
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/battery.c:84) Battery init completed
+[2025-12-09 04:54:46] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:54:46] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:54:46] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:54:47] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:54:48] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:54:49] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:54:50] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:54:51] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:54:52] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:54:53] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:54:54] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 04:54:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 9
+[2025-12-09 04:54:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 10
+[2025-12-09 04:54:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 11
+[2025-12-09 04:54:58] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 12
+[2025-12-09 04:54:59] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 13
+[2025-12-09 04:55:00] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 14
+[2025-12-09 04:55:01] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 15
+[2025-12-09 04:55:02] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 16
+[2025-12-09 04:55:03] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 17
+[2025-12-09 04:55:04] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 18
+[2025-12-09 04:55:05] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 19
+[2025-12-09 04:55:06] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 20
+[2025-12-09 04:55:07] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 21
+[2025-12-09 04:55:08] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 22
+[2025-12-09 04:55:09] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 23
+[2025-12-09 04:55:10] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 24
+[2025-12-09 04:55:11] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 25
+[2025-12-09 04:55:12] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 26
+[2025-12-09 04:55:13] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 27
+[2025-12-09 04:55:14] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 28
+[2025-12-09 04:55:15] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 29
+[2025-12-09 04:55:16] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 30
+[2025-12-09 04:55:17] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 31
+[2025-12-09 04:55:18] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 32
+[2025-12-09 04:55:19] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 33
+[2025-12-09 04:55:20] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 34
+[2025-12-09 04:55:21] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 35
+[2025-12-09 04:55:22] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 36
+[2025-12-09 04:55:23] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 37
+[2025-12-09 04:55:24] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 38
+[2025-12-09 04:55:25] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 39
+[2025-12-09 04:55:26] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 40
+[2025-12-09 04:55:27] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 41
+[2025-12-09 04:55:28] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 42
+[2025-12-09 04:55:29] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 43
+[2025-12-09 04:55:30] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 44
+[2025-12-09 04:55:31] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 45
+[2025-12-09 04:55:32] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 46
+[2025-12-09 04:55:33] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 47
+[2025-12-09 04:55:34] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 48
+[2025-12-09 04:55:35] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 49
+[2025-12-09 04:55:35] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:55:35] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 50
+[2025-12-09 04:55:35] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:55:35] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 04:58:42] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 04:58:42] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 04:58:42] [solarize] [INFO] (src/config.c:289) JSON parsed: 3 loads, 2 zones, 1 EV chargers.
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:35) Initializing batteries 1
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:38) Initializing batteries
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_1
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_2
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_3
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:57) BANK BANK_4
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:61) BANK_4
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/battery.c:84) Battery init completed
+[2025-12-09 04:58:42] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 04:58:42] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 04:58:42] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 04:58:43] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:43] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 1
+[2025-12-09 04:58:44] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:44] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 2
+[2025-12-09 04:58:45] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:45] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 3
+[2025-12-09 04:58:46] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:46] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 4
+[2025-12-09 04:58:47] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:47] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 5
+[2025-12-09 04:58:48] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:48] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 6
+[2025-12-09 04:58:49] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:49] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 7
+[2025-12-09 04:58:50] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:50] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 8
+[2025-12-09 04:58:51] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:51] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 9
+[2025-12-09 04:58:52] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:52] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 10
+[2025-12-09 04:58:53] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:53] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 11
+[2025-12-09 04:58:54] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:54] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 12
+[2025-12-09 04:58:55] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:55] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 13
+[2025-12-09 04:58:56] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:56] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 14
+[2025-12-09 04:58:57] [solarize] [DEBUG] (src/controller.c:168) consumption: 0
+[2025-12-09 04:58:57] [solarize] [DEBUG] (src/main.c:138) Completed control cycle 15
+[2025-12-09 04:58:58] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 04:58:58] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 16
+[2025-12-09 04:58:58] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 04:58:58] [solarize] [INFO] (src/main.c:159) Shutdown complete
+[2025-12-09 05:29:49] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 05:29:49] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 05:29:49] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 06:29:53] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 06:29:53] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 06:31:51] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 06:31:51] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 06:31:58] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 06:31:58] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 06:31:58] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 06:32:14] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 06:44:37] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 06:44:37] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 06:44:37] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 06:46:32] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 06:46:32] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 06:46:32] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 06:46:58] [solarize] [INFO] (src/main.c:83) Solarize Energy Solutions
+[2025-12-09 06:46:58] [solarize] [DEBUG] (src/main.c:84) Configuration: file=config/default_config.json, log=log/solarize.log, debug=1
+[2025-12-09 06:46:58] [solarize] [INFO] (src/main.c:100) Loading configuration from config/default_config.json
+[2025-12-09 06:46:58] [solarize] [INFO] (src/config.c:382) JSON parsed: 3 loads, 2 zones, 1 EV chargers, 4 batteries.
+[2025-12-09 06:46:58] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_1 
+[2025-12-09 06:46:58] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_2 
+[2025-12-09 06:46:58] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_3 
+[2025-12-09 06:46:58] [solarize] [DEBUG] (src/pv.c:40) Pv ID: PV_STRING_4 
+[2025-12-09 06:46:58] [solarize] [INFO] (src/battery.c:114) Battery initialized: 4 banks, nominal_wh=40000
+[2025-12-09 06:46:58] [solarize] [INFO] (src/main.c:127) System init complete. Solarize now online.
+[2025-12-09 06:46:58] [solarize] [DEBUG] (src/main.c:128) Control interval: 0 seconds
+[2025-12-09 06:46:58] [solarize] [WARNING] (src/main.c:136) Controller cycle 0 encountered an issue
+[2025-12-09 06:46:59] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:46:59] [solarize] [WARNING] (src/main.c:136) Controller cycle 1 encountered an issue
+[2025-12-09 06:47:00] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:00] [solarize] [WARNING] (src/main.c:136) Controller cycle 2 encountered an issue
+[2025-12-09 06:47:01] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:01] [solarize] [WARNING] (src/main.c:136) Controller cycle 3 encountered an issue
+[2025-12-09 06:47:02] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:02] [solarize] [WARNING] (src/main.c:136) Controller cycle 4 encountered an issue
+[2025-12-09 06:47:03] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:03] [solarize] [WARNING] (src/main.c:136) Controller cycle 5 encountered an issue
+[2025-12-09 06:47:04] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:04] [solarize] [WARNING] (src/main.c:136) Controller cycle 6 encountered an issue
+[2025-12-09 06:47:05] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:05] [solarize] [WARNING] (src/main.c:136) Controller cycle 7 encountered an issue
+[2025-12-09 06:47:06] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:06] [solarize] [WARNING] (src/main.c:136) Controller cycle 8 encountered an issue
+[2025-12-09 06:47:07] [solarize] [DEBUG] (src/controller.c:168) consumption: 13250.0 W, generation: 0.0 W, battery: 0.0 W, grid: 13250.0 W
+[2025-12-09 06:47:07] [solarize] [WARNING] (src/main.c:136) Controller cycle 9 encountered an issue
+[2025-12-09 06:47:08] [solarize] [INFO] (src/main.c:32) Received signal 2, shutting down...
+[2025-12-09 06:47:08] [solarize] [DEBUG] (src/main.c:151) Total cycles completed: 10
+[2025-12-09 06:47:08] [solarize] [DEBUG] (src/main.c:156) Controller cleaned up
+[2025-12-09 06:47:08] [solarize] [INFO] (src/main.c:159) Shutdown complete
