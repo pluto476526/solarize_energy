@@ -1,0 +1,44 @@
+[Unit]
+Description=Energy Management System with Web Interface
+After=network.target
+Wants=network.target
+Requires=network-online.target
+
+[Service]
+Type=simple
+User=energy
+Group=energy
+WorkingDirectory=/opt/energy_manager
+Environment="WEB_PORT=8080"
+Environment="WEB_SSL_PORT=8443"
+Environment="WEB_STATIC_DIR=/opt/energy_manager/static"
+Environment="WEB_ADMIN_PASSWORD=changeme"
+ExecStart=/opt/energy_manager/energy_manager_web --daemon --config /opt/energy_manager/config.json
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=energy_manager_web
+
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ReadWritePaths=/var/log/energy_manager
+ReadWritePaths=/opt/energy_manager/data
+CapabilityBoundingSet=
+SystemCallFilter=@system-service
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=512
+LimitCORE=0
+
+[Install]
+WantedBy=multi-user.target

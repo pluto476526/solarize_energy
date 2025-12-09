@@ -1,0 +1,44 @@
+{
+    "hardware": {
+        "pv_inverters": [
+            {
+                "type": "sma",
+                "interface": "modbus_tcp",
+                "ip_address": "192.168.1.100",
+                "port": 502,
+                "unit_id": 3,
+                "max_power": 5000
+            }
+        ],
+        "battery_systems": [
+            {
+                "type": "victron",
+                "interface": "can",
+                "can_interface": "can0",
+                "speed": 250000,
+                "node_id": 1,
+                "capacity": 9600
+            }
+        ],
+        "relay_modules": [
+            {
+                "type": "wago",
+                "interface": "modbus_rtu",
+                "port": "/dev/ttyUSB0",
+                "baud_rate": 38400,
+                "unit_id": 1,
+                "channels": 8
+            }
+        ],
+        "energy_meters": [
+            {
+                "type": "janitza",
+                "interface": "modbus_rtu",
+                "port": "/dev/ttyUSB1",
+                "baud_rate": 19200,
+                "unit_id": 2,
+                "phases": 3
+            }
+        ]
+    }
+}

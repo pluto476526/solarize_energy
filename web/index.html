@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Management System</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --bs-dark-rgb: 13, 17, 23;
+            --bs-yellow: #ffc107;
+            --bs-yellow-dark: #b58800;
+            --bs-yellow-light: #fff3cd;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            min-height: 100vh;
+        }
+        
+        .card {
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--bs-yellow);
+        }
+        
+        .card-header {
+            background: rgba(13, 17, 23, 0.9);
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .bg-gradient-yellow {
+            background: linear-gradient(135deg, var(--bs-yellow) 0%, var(--bs-yellow-dark) 100%);
+        }
+        
+        .text-yellow {
+            color: var(--bs-yellow) !important;
+        }
+        
+        .border-yellow {
+            border-color: var(--bs-yellow) !important;
+        }
+        
+        .btn-yellow {
+            background: linear-gradient(135deg, var(--bs-yellow) 0%, var(--bs-yellow-dark) 100%);
+            border: none;
+            color: #212529;
+            font-weight: 600;
+        }
+        
+        .btn-yellow:hover {
+            background: linear-gradient(135deg, #e0a800 0%, #9e7400 100%);
+            color: #212529;
+            transform: translateY(-1px);
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .status-online {
+            background-color: #198754;
+            box-shadow: 0 0 10px #198754;
+        }
+        
+        .status-offline {
+            background-color: #dc3545;
+            box-shadow: 0 0 10px #dc3545;
+        }
+        
+        .status-warning {
+            background-color: var(--bs-yellow);
+            box-shadow: 0 0 10px var(--bs-yellow);
+        }
+        
+        .energy-flow {
+            position: relative;
+            height: 200px;
+        }
+        
+        .energy-source {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .energy-flow-line {
+            position: absolute;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--bs-yellow), transparent);
+            animation: flow 2s infinite linear;
+        }
+        
+        @keyframes flow {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .meter {
+            height: 8px;
+            background: #30363d;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .meter-grid { background: #0dcaf0; }
+        .meter-pv { background: var(--bs-yellow); }
+        .meter-battery { background: #20c997; }
+        .meter-load { background: #fd7e14; }
+        
+        .stat-card {
+            border-left: 4px solid var(--bs-yellow);
+        }
+        
+        .nav-link.active {
+            background: rgba(255, 193, 7, 0.1) !important;
+            border-left: 3px solid var(--bs-yellow) !important;
+            color: var(--bs-yellow) !important;
+        }
+        
+        .toast {
+            background: rgba(22, 27, 34, 0.95);
+            border: 1px solid var(--bs-yellow);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--bs-yellow);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-yellow">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-lightning-charge-fill text-yellow fs-3 me-2"></i>
+                <span class="fw-bold">Energy<span class="text-yellow">Control</span></span>
+                <small class="text-muted ms-2 d-none d-md-inline">v2.0</small>
+            </a>
+            
+            <button class="navbar-toggler border-yellow" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="dashboard">
+                            <i class="bi bi-speedometer2 me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="energy">
+                            <i class="bi bi-lightning me-1"></i>Energy Flow
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="pv">
+                            <i class="bi bi-sun me-1"></i>Solar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="battery">
+                            <i class="bi bi-battery-charging me-1"></i>Battery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="loads">
+                            <i class="bi bi-plug me-1"></i>Loads
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="alarms">
+                            <i class="bi bi-exclamation-triangle me-1"></i>Alarms
+                            <span class="badge bg-danger rounded-pill ms-1" id="alarm-badge">0</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <!-- System Status -->
+                    <div class="me-3 d-none d-lg-block">
+                        <span class="badge bg-success me-2" id="system-status">
+                            <i class="bi bi-check-circle me-1"></i>Normal
+                        </span>
+                        <span class="badge bg-info me-2" id="grid-status">
+                            <i class="bi bi-lightning me-1"></i>Grid: On
+                        </span>
+                        <span class="badge bg-warning text-dark" id="battery-soc-badge">
+                            <i class="bi bi-battery-half me-1"></i>85%
+                        </span>
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-yellow dropdown-toggle" type="button" 
+                                data-bs-toggle="dropdown" id="user-menu">
+                            <i class="bi bi-person-circle me-2"></i>
+                            <span id="username">Guest</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end bg-dark border-yellow">
+                            <li><a class="dropdown-item text-light" href="#" id="login-btn">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            </a></li>
+                            <li><hr class="dropdown-divider bg-yellow"></li>
+                            <li><a class="dropdown-item text-light" href="#" data-page="settings">
+                                <i class="bi bi-gear me-2"></i>Settings
+                            </a></li>
+                            <li><a class="dropdown-item text-light" href="#" id="logout-btn">
+                                <i class="bi bi-box-arrow-right me-2"></i>Logout
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h6 class="card-title text-muted mb-3">
+                            <i class="bi bi-graph-up me-2"></i>Quick Stats
+                        </h6>
+                        
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Solar Production</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0" id="pv-power">0 kW</h4>
+                                <i class="bi bi-sun text-yellow fs-4"></i>
+                            </div>
+                            <div class="meter mt-2">
+                                <div class="meter-fill meter-pv" id="pv-meter" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Grid Import</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0" id="grid-power">0 kW</h4>
+                                <i class="bi bi-lightning text-info fs-4"></i>
+                            </div>
+                            <div class="meter mt-2">
+                                <div class="meter-fill meter-grid" id="grid-meter" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Battery SOC</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0" id="battery-soc">0%</h4>
+                                <i class="bi bi-battery text-success fs-4"></i>
+                            </div>
+                            <div class="meter mt-2">
+                                <div class="meter-fill meter-battery" id="battery-meter" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <small class="text-muted d-block">Total Load</small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0" id="load-power">0 kW</h4>
+                                <i class="bi bi-plug text-warning fs-4"></i>
+                            </div>
+                            <div class="meter mt-2">
+                                <div class="meter-fill meter-load" id="load-meter" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <hr class="bg-yellow my-3">
+                        
+                        <div class="text-center small">
+                            <div class="text-muted">Last Update</div>
+                            <div class="text-light" id="last-update">--:--:--</div>
+                            <div class="text-muted mt-2">Uptime</div>
+                            <div class="text-light" id="system-uptime">0d 0h 0m</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Controls -->
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title text-muted mb-3">
+                            <i class="bi bi-toggles me-2"></i>Quick Controls
+                        </h6>
+                        
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-yellow mb-2" id="emergency-stop">
+                                <i class="bi bi-shield-exclamation me-2"></i>Emergency Stop
+                            </button>
+                            
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-outline-yellow" id="mode-normal">
+                                    <i class="bi bi-check-circle me-1"></i>Normal
+                                </button>
+                                <button class="btn btn-outline-warning" id="mode-island">
+                                    <i class="bi bi-lightning me-1"></i>Island
+                                </button>
+                                <button class="btn btn-outline-danger" id="mode-critical">
+                                    <i class="bi bi-exclamation-triangle me-1"></i>Critical
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-lg-9 col-xl-10">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page-content">
+                    <!-- Stats Row -->
+                    <div class="row mb-4">
+                        <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="card stat-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-subtitle text-muted">Total Energy Today</h6>
+                                            <h3 class="card-title mt-2" id="energy-today">0 kWh</h3>
+                                        </div>
+                                        <i class="bi bi-lightning-charge text-yellow fs-1"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <small class="text-success">
+                                            <i class="bi bi-arrow-up me-1"></i>
+                                            <span id="energy-efficiency">0</span>% Efficiency
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="card stat-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-subtitle text-muted">Self Consumption</h6>
+                                            <h3 class="card-title mt-2" id="self-consumption">0%</h3>
+                                        </div>
+                                        <i class="bi bi-arrow-repeat text-info fs-1"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <small class="text-muted">
+                                            Solar Used: <span id="solar-used">0</span> kWh
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="card stat-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-subtitle text-muted">Grid Balance</h6>
+                                            <h3 class="card-title mt-2" id="grid-balance">0 kW</h3>
+                                        </div>
+                                        <i class="bi bi-arrow-left-right text-warning fs-1"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <small class="text-muted">
+                                            <span id="grid-direction">Importing</span> from grid
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="card stat-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-subtitle text-muted">Active Loads</h6>
+                                            <h3 class="card-title mt-2" id="active-loads">0</h3>
+                                        </div>
+                                        <i class="bi bi-plug-fill text-success fs-1"></i>
+                                    </div>
+                                    <div class="mt-3">
+                                        <small class="text-muted">
+                                            <span id="deferred-loads">0</span> loads deferred
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Charts Row -->
+                    <div class="row">
+                        <div class="col-xl-8 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">
+                                        <i class="bi bi-graph-up me-2"></i>Power Trends
+                                    </h5>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-outline-yellow active" data-range="1">1H</button>
+                                        <button type="button" class="btn btn-outline-yellow" data-range="6">6H</button>
+                                        <button type="button" class="btn btn-outline-yellow" data-range="24">24H</button>
+                                        <button type="button" class="btn btn-outline-yellow" data-range="168">7D</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="power-chart" height="250"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="bi bi-pie-chart me-2"></i>Energy Distribution
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="energy-chart" height="250"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- System Status Row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="bi bi-cpu me-2"></i>System Status
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <small class="text-muted">System Mode</small>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="status-indicator status-online me-2"></span>
+                                                    <span class="fs-5" id="system-mode">Normal</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <small class="text-muted">Grid Status</small>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="status-indicator status-online me-2"></span>
+                                                    <span class="fs-5" id="grid-status-text">Connected & Stable</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <small class="text-muted">PV System</small>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="status-indicator status-online me-2"></span>
+                                                    <span class="fs-5" id="pv-status">MPPT Active</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <small class="text-muted">Battery System</small>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="status-indicator status-online me-2"></span>
+                                                    <span class="fs-5" id="battery-status">Charging</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <small class="text-muted">Load Manager</small>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="status-indicator status-online me-2"></span>
+                                                    <span class="fs-5" id="load-manager-status">Auto</span>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <small class="text-muted">Communication</small>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="status-indicator status-online me-2"></span>
+                                                    <span class="fs-5" id="comm-status">All Systems OK</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other pages will be loaded dynamically -->
+                <div id="dynamic-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-yellow">
+                <div class="modal-header border-yellow">
+                    <h5 class="modal-title text-yellow">
+                        <i class="bi bi-lock me-2"></i>System Authentication
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control bg-dark border-yellow text-light" 
+                                   id="loginUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control bg-dark border-yellow text-light" 
+                                   id="loginPassword" required>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-yellow">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-3 text-center text-muted small">
+                        <div>Demo Accounts:</div>
+                        <div class="mt-1">
+                            <span class="badge bg-dark me-2">admin / admin123</span>
+                            <span class="badge bg-dark me-2">operator / operator123</span>
+                            <span class="badge bg-dark">viewer / viewer123</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alarms Modal -->
+    <div class="modal fade" id="alarmsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark border-danger">
+                <div class="modal-header border-danger">
+                    <h5 class="modal-title text-danger">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Active Alarms
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Severity</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="alarms-table">
+                                <!-- Alarms will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="ack-all-alarms">
+                        <i class="bi bi-check-circle me-2"></i>Acknowledge All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark border-yellow">
+                <div class="modal-header border-yellow">
+                    <h5 class="modal-title text-yellow">
+                        <i class="bi bi-gear me-2"></i>System Settings
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">System Configuration</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form id="systemConfigForm">
+                                        <div class="mb-3">
+                                            <label class="form-label">Control Interval (seconds)</label>
+                                            <input type="number" class="form-control bg-dark border-yellow" 
+                                                   value="1" min="0.1" max="10" step="0.1">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Default Mode</label>
+                                            <select class="form-select bg-dark border-yellow">
+                                                <option value="0">Normal</option>
+                                                <option value="1">Island</option>
+                                                <option value="2">Critical</option>
+                                                <option value="3">Maintenance</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-yellow w-100">Save Configuration</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-dark border-secondary mb-3">
+                                <div class="card-header">
+                                    <h6 class="mb-0">User Management</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Change Password</label>
+                                        <input type="password" class="form-control bg-dark border-yellow mb-2" 
+                                               placeholder="Current Password">
+                                        <input type="password" class="form-control bg-dark border-yellow mb-2" 
+                                               placeholder="New Password">
+                                        <input type="password" class="form-control bg-dark border-yellow" 
+                                               placeholder="Confirm New Password">
+                                    </div>
+                                    <button class="btn btn-yellow w-100">Update Password</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="notification-toast" class="toast" role="alert">
+            <div class="toast-header bg-dark border-yellow">
+                <strong class="me-auto text-yellow" id="toast-title">Notification</strong>
+                <small class="text-muted" id="toast-time">Just now</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body bg-dark text-light" id="toast-message">
+                <!-- Message content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Application JS -->
+    <script>
+        class EnergyDashboard {
+            constructor() {
+                this.apiBase = '/api';
+                this.wsUrl = `ws://${window.location.host}/ws`;
+                this.socket = null;
+                this.sessionId = null;
+                this.userRole = 'guest';
+                this.updateInterval = null;
+                this.powerChart = null;
+                this.energyChart = null;
+                
+                this.initialize();
+            }
+            
+            initialize() {
+                this.loadSession();
+                this.setupEventListeners();
+                this.setupCharts();
+                this.setupWebSocket();
+                this.startUpdateInterval();
+                this.loadDashboardData();
+                
+                // Show dashboard by default
+                this.showPage('dashboard');
+            }
+            
+            loadSession() {
+                // Load session from cookie
+                const cookies = document.cookie.split(';');
+                for (const cookie of cookies) {
+                    const [name, value] = cookie.trim().split('=');
+                    if (name === 'session_id') {
+                        this.sessionId = value;
+                        this.getUserInfo();
+                        break;
+                    }
+                }
+            }
+            
+            setupEventListeners() {
+                // Navigation
+                document.querySelectorAll('[data-page]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showPage(link.dataset.page);
+                    });
+                });
+                
+                // Login
+                document.getElementById('login-btn').addEventListener('click', () => {
+                    new bootstrap.Modal(document.getElementById('loginModal')).show();
+                });
+                
+                document.getElementById('loginForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.login();
+                });
+                
+                // Logout
+                document.getElementById('logout-btn').addEventListener('click', () => {
+                    this.logout();
+                });
+                
+                // Emergency stop
+                document.getElementById('emergency-stop').addEventListener('click', () => {
+                    if (confirm('Are you sure you want to perform emergency shutdown? This will stop all systems.')) {
+                        this.setSystemMode(4); // Emergency mode
+                        this.showNotification('Emergency shutdown initiated', 'warning');
+                    }
+                });
+                
+                // Mode buttons
+                document.getElementById('mode-normal').addEventListener('click', () => this.setSystemMode(0));
+                document.getElementById('mode-island').addEventListener('click', () => this.setSystemMode(1));
+                document.getElementById('mode-critical').addEventListener('click', () => this.setSystemMode(2));
+                
+                // Alarm acknowledge
+                document.getElementById('ack-all-alarms').addEventListener('click', () => {
+                    this.acknowledgeAlarms();
+                });
+                
+                // Chart range buttons
+                document.querySelectorAll('[data-range]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('[data-range]').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.updateChartRange(parseInt(e.target.dataset.range));
+                    });
+                });
+            }
+            
+            setupCharts() {
+                // Power Chart
+                const powerCtx = document.getElementById('power-chart').getContext('2d');
+                this.powerChart = new Chart(powerCtx, {
+                    type: 'line',
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: 'Grid Power',
+                                data: [],
+                                borderColor: '#0dcaf0',
+                                backgroundColor: 'rgba(13, 202, 240, 0.1)',
+                                tension: 0.4,
+                                fill: true
+                            },
+                            {
+                                label: 'Solar Power',
+                                data: [],
+                                borderColor: '#ffc107',
+                                backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                                tension: 0.4,
+                                fill: true
+                            },
+                            {
+                                label: 'Load Power',
+                                data: [],
+                                borderColor: '#fd7e14',
+                                backgroundColor: 'rgba(253, 126, 20, 0.1)',
+                                tension: 0.4,
+                                fill: true
+                            },
+                            {
+                                label: 'Battery Power',
+                                data: [],
+                                borderColor: '#20c997',
+                                backgroundColor: 'rgba(32, 201, 151, 0.1)',
+                                tension: 0.4,
+                                fill: true
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#adb5bd' }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: { color: '#adb5bd' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            },
+                            y: {
+                                ticks: { color: '#adb5bd' },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                                title: {
+                                    display: true,
+                                    text: 'Power (kW)',
+                                    color: '#adb5bd'
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                // Energy Distribution Chart
+                const energyCtx = document.getElementById('energy-chart').getContext('2d');
+                this.energyChart = new Chart(energyCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Grid Import', 'Solar', 'Battery', 'Loads'],
+                        datasets: [{
+                            data: [25, 35, 15, 25],
+                            backgroundColor: [
+                                '#0dcaf0',
+                                '#ffc107',
+                                '#20c997',
+                                '#fd7e14'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#161b22'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: '#adb5bd' }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            setupWebSocket() {
+                try {
+                    this.socket = new WebSocket(this.wsUrl);
+                    
+                    this.socket.onopen = () => {
+                        console.log('WebSocket connected');
+                        this.authenticateWebSocket();
+                        this.subscribeToUpdates();
+                    };
+                    
+                    this.socket.onmessage = (event) => {
+                        this.handleWebSocketMessage(JSON.parse(event.data));
+                    };
+                    
+                    this.socket.onclose = () => {
+                        console.log('WebSocket disconnected, reconnecting...');
+                        setTimeout(() => this.setupWebSocket(), 5000);
+                    };
+                    
+                    this.socket.onerror = (error) => {
+                        console.error('WebSocket error:', error);
+                    };
+                } catch (error) {
+                    console.error('Failed to setup WebSocket:', error);
+                }
+            }
+            
+            authenticateWebSocket() {
+                if (this.sessionId) {
+                    this.socket.send(JSON.stringify({
+                        type: 'auth',
+                        token: this.sessionId
+                    }));
+                }
+            }
+            
+            subscribeToUpdates() {
+                this.socket.send(JSON.stringify({
+                    type: 'subscribe',
+                    subscriptions: {
+                        system: true,
+                        pv: true,
+                        battery: true,
+                        loads: true,
+                        alarms: true
+                    }
+                }));
+            }
+            
+            handleWebSocketMessage(data) {
+                switch (data.type) {
+                    case 'system_update':
+                        this.updateRealTimeData(data);
+                        break;
+                    case 'alarm_update':
+                        this.handleAlarmUpdate(data);
+                        break;
+                    case 'connected':
+                        console.log('WebSocket connected with ID:', data.client_id);
+                        break;
+                    case 'auth_success':
+                        console.log('WebSocket authenticated as:', data.username);
+                        break;
+                    case 'pong':
+                        // Keep-alive response
+                        break;
+                }
+            }
+            
+            startUpdateInterval() {
+                this.updateInterval = setInterval(() => {
+                    this.loadSystemStatus();
+                    this.updateClock();
+                }, 5000); // Update every 5 seconds
+            }
+            
+            updateClock() {
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString();
+                document.getElementById('last-update').textContent = timeStr;
+                
+                // Update toast time
+                document.getElementById('toast-time').textContent = timeStr;
+            }
+            
+            async apiRequest(endpoint, method = 'GET', data = null) {
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+                
+                if (this.sessionId) {
+                    headers['Authorization'] = `Bearer ${this.sessionId}`;
+                }
+                
+                const options = {
+                    method,
+                    headers
+                };
+                
+                if (data && (method === 'POST' || method === 'PUT')) {
+                    options.body = JSON.stringify(data);
+                }
+                
+                try {
+                    const response = await fetch(`${this.apiBase}${endpoint}`, options);
+                    
+                    if (response.status === 401) {
+                        this.handleUnauthorized();
+                        return null;
+                    }
+                    
+                    if (!response.ok) {
+                        throw new Error(`API error: ${response.status}`);
+                    }
+                    
+                    return await response.json();
+                } catch (error) {
+                    console.error(`API request failed:`, error);
+                    this.showNotification('API request failed', 'error');
+                    return null;
+                }
+            }
+            
+            async loadDashboardData() {
+                const data = await this.apiRequest('/system/status');
+                if (data) {
+                    this.updateDashboard(data);
+                }
+                
+                // Load additional data
+                await Promise.all([
+                    this.loadSystemStats(),
+                    this.loadAlarms()
+                ]);
+            }
+            
+            async loadSystemStatus() {
+                const data = await this.apiRequest('/system/status');
+                if (data) {
+                    this.updateRealTimeData(data);
+                }
+            }
+            
+            async loadSystemStats() {
+                const data = await this.apiRequest('/system/stats');
+                if (data) {
+                    this.updateStatistics(data);
+                }
+            }
+            
+            async loadAlarms() {
+                const data = await this.apiRequest('/alarms');
+                if (data) {
+                    this.updateAlarms(data);
+                }
+            }
+            
+            async getUserInfo() {
+                const data = await this.apiRequest('/user');
+                if (data && data.success) {
+                    this.userRole = data.data.role;
+                    document.getElementById('username').textContent = data.data.username;
+                    this.updateUIBasedOnRole();
+                }
+            }
+            
+            updateUIBasedOnRole() {
+                // Enable/disable controls based on role
+                const controls = document.querySelectorAll('.btn:not(.nav-link)');
+                const isAdmin = this.userRole === 'admin' || this.userRole === 'superuser';
+                const isOperator = isAdmin || this.userRole === 'operator';
+                
+                controls.forEach(control => {
+                    if (control.id === 'emergency-stop' || control.id.startsWith('mode-')) {
+                        control.disabled = !isOperator;
+                    }
+                });
+            }
+            
+            updateDashboard(data) {
+                this.updateRealTimeData(data);
+                this.updateStatistics(data);
+            }
+            
+            updateRealTimeData(data) {
+                // Update power values
+                const gridPower = data.measurements.grid_power / 1000;
+                const pvPower = data.measurements.pv_power_total / 1000;
+                const batteryPower = data.measurements.battery_power / 1000;
+                const loadPower = data.measurements.load_power_total / 1000;
+                const batterySoc = data.measurements.battery_soc;
+                
+                document.getElementById('pv-power').textContent = `${pvPower.toFixed(2)} kW`;
+                document.getElementById('grid-power').textContent = `${gridPower.toFixed(2)} kW`;
+                document.getElementById('battery-soc').textContent = `${batterySoc.toFixed(1)}%`;
+                document.getElementById('load-power').textContent = `${loadPower.toFixed(2)} kW`;
+                
+                // Update meters
+                document.getElementById('pv-meter').style.width = `${Math.min(100, pvPower / 10 * 100)}%`;
+                document.getElementById('grid-meter').style.width = `${Math.min(100, Math.abs(gridPower) / 20 * 100)}%`;
+                document.getElementById('battery-meter').style.width = `${batterySoc}%`;
+                document.getElementById('load-meter').style.width = `${Math.min(100, loadPower / 50 * 100)}%`;
+                
+                // Update status badges
+                document.getElementById('battery-soc-badge').textContent = `${batterySoc.toFixed(0)}%`;
+                document.getElementById('system-status').textContent = 
+                    data.status.mode === 0 ? 'Normal' : 
+                    data.status.mode === 1 ? 'Island' : 
+                    data.status.mode === 2 ? 'Critical' : 'Emergency';
+                
+                document.getElementById('grid-status').innerHTML = 
+                    `<i class="bi bi-lightning me-1"></i>Grid: ${data.status.grid_available ? 'On' : 'Off'}`;
+                
+                // Update system mode
+                const modeText = ['Normal', 'Island', 'Critical', 'Maintenance', 'Emergency'][data.status.mode] || 'Unknown';
+                document.getElementById('system-mode').textContent = modeText;
+                
+                // Update chart
+                const now = new Date();
+                this.powerChart.data.labels.push(now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
+                this.powerChart.data.datasets[0].data.push(gridPower);
+                this.powerChart.data.datasets[1].data.push(pvPower);
+                this.powerChart.data.datasets[2].data.push(loadPower);
+                this.powerChart.data.datasets[3].data.push(batteryPower);
+                
+                // Keep only last 60 points
+                if (this.powerChart.data.labels.length > 60) {
+                    this.powerChart.data.labels.shift();
+                    this.powerChart.data.datasets.forEach(dataset => dataset.data.shift());
+                }
+                
+                this.powerChart.update('none');
+                
+                // Update energy chart
+                const total = Math.abs(gridPower) + pvPower + Math.abs(batteryPower) + loadPower;
+                if (total > 0) {
+                    this.energyChart.data.datasets[0].data = [
+                        Math.max(0, gridPower) / total * 100,
+                        pvPower / total * 100,
+                        Math.max(0, batteryPower) / total * 100,
+                        loadPower / total * 100
+                    ];
+                    this.energyChart.update();
+                }
+            }
+            
+            updateStatistics(data) {
+                // Calculate derived statistics
+                const gridPower = data.measurements.grid_power;
+                const pvPower = data.measurements.pv_power_total;
+                const loadPower = data.measurements.load_power_total;
+                
+                // Self consumption rate
+                const selfConsumption = pvPower > 0 ? 
+                    Math.min(100, (pvPower - Math.max(0, -gridPower)) / pvPower * 100) : 0;
+                
+                document.getElementById('self-consumption').textContent = `${selfConsumption.toFixed(1)}%`;
+                document.getElementById('solar-used').textContent = (pvPower / 1000).toFixed(1);
+                document.getElementById('grid-balance').textContent = `${(gridPower / 1000).toFixed(2)} kW`;
+                document.getElementById('grid-direction').textContent = gridPower >= 0 ? 'Importing' : 'Exporting';
+                
+                // Calculate efficiency (simplified)
+                const efficiency = pvPower > 0 ? (loadPower / (pvPower + Math.max(0, gridPower)) * 100) : 0;
+                document.getElementById('energy-efficiency').textContent = efficiency.toFixed(1);
+            }
+            
+            updateAlarms(data) {
+                const alarmCount = data.active_alarms.length;
+                const warningCount = data.active_warnings.length;
+                
+                document.getElementById('alarm-badge').textContent = alarmCount;
+                
+                if (alarmCount > 0) {
+                    document.getElementById('alarm-badge').classList.remove('d-none');
+                } else {
+                    document.getElementById('alarm-badge').classList.add('d-none');
+                }
+                
+                // Update alarms table if modal is open
+                const table = document.getElementById('alarms-table');
+                if (table) {
+                    table.innerHTML = '';
+                    
+                    data.active_alarms.forEach(alarm => {
+                        const row = document.createElement('tr');
+                        row.className = 'table-danger';
+                        row.innerHTML = `
+                            <td>${new Date(alarm.timestamp * 1000).toLocaleTimeString()}</td>
+                            <td><span class="badge bg-danger">CRITICAL</span></td>
+                            <td>${alarm.description}</td>
+                            <td><button class="btn btn-sm btn-outline-danger" onclick="dashboard.acknowledgeAlarm(${alarm.code})">Acknowledge</button></td>
+                        `;
+                        table.appendChild(row);
+                    });
+                    
+                    data.active_warnings.forEach(warning => {
+                        const row = document.createElement('tr');
+                        row.className = 'table-warning';
+                        row.innerHTML = `
+                            <td>${new Date(warning.timestamp * 1000).toLocaleTimeString()}</td>
+                            <td><span class="badge bg-warning text-dark">WARNING</span></td>
+                            <td>${warning.description}</td>
+                            <td><button class="btn btn-sm btn-outline-warning" onclick="dashboard.acknowledgeAlarm(${warning.code})">Acknowledge</button></td>
+                        `;
+                        table.appendChild(row);
+                    });
+                }
+            }
+            
+            handleAlarmUpdate(data) {
+                if (data.active) {
+                    this.showNotification(`New alarm: ${this.getAlarmDescription(data.alarm)}`, 'error', 'Alarm Triggered');
+                } else {
+                    this.showNotification(`Alarm cleared: ${this.getAlarmDescription(data.alarm)}`, 'success', 'Alarm Cleared');
+                }
+                
+                // Reload alarms
+                this.loadAlarms();
+            }
+            
+            getAlarmDescription(code) {
+                const alarms = {
+                    0: 'Grid failure',
+                    1: 'Battery over temperature',
+                    2: 'Battery low SOC',
+                    3: 'PV disconnect',
+                    4: 'System overload',
+                    5: 'Communication failure',
+                    6: 'Irrigation fault',
+                    7: 'EV charger fault'
+                };
+                return alarms[code] || `Alarm ${code}`;
+            }
+            
+            showPage(page) {
+                // Hide all pages
+                document.querySelectorAll('.page-content').forEach(p => p.classList.add('d-none'));
+                document.getElementById('dashboard-page').classList.remove('d-none');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                document.querySelector(`[data-page="${page}"]`).classList.add('active');
+                
+                // Handle special pages
+                if (page === 'alarms') {
+                    this.loadAlarms();
+                    new bootstrap.Modal(document.getElementById('alarmsModal')).show();
+                } else if (page === 'settings') {
+                    new bootstrap.Modal(document.getElementById('settingsModal')).show();
+                }
+            }
+            
+            async login() {
+                const username = document.getElementById('loginUsername').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                const response = await this.apiRequest('/login', 'POST', {
+                    username,
+                    password
+                });
+                
+                if (response && response.success) {
+                    this.sessionId = response.session_id;
+                    this.userRole = response.role;
+                    
+                    // Update UI
+                    document.getElementById('username').textContent = username;
+                    bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+                    this.showNotification('Login successful', 'success');
+                    
+                    // Re-authenticate WebSocket
+                    this.authenticateWebSocket();
+                    
+                    // Reload data
+                    this.loadDashboardData();
+                    this.getUserInfo();
+                } else {
+                    this.showNotification('Login failed', 'error');
+                }
+            }
+            
+            async logout() {
+                await this.apiRequest('/logout', 'POST');
+                
+                this.sessionId = null;
+                this.userRole = 'guest';
+                document.getElementById('username').textContent = 'Guest';
+                this.showNotification('Logged out successfully', 'info');
+            }
+            
+            async setSystemMode(mode) {
+                const response = await this.apiRequest('/system/mode', 'POST', {
+                    mode
+                });
+                
+                if (response && response.success) {
+                    this.showNotification('System mode updated', 'success');
+                    this.loadSystemStatus();
+                }
+            }
+            
+            async acknowledgeAlarms() {
+                const response = await this.apiRequest('/alarms/acknowledge', 'POST', {
+                    acknowledge_all: true
+                });
+                
+                if (response && response.success) {
+                    this.showNotification('All alarms acknowledged', 'success');
+                    this.loadAlarms();
+                    bootstrap.Modal.getInstance(document.getElementById('alarmsModal')).hide();
+                }
+            }
+            
+            async acknowledgeAlarm(code) {
+                const response = await this.apiRequest('/alarms/acknowledge', 'POST', {
+                    alarm_code: code
+                });
+                
+                if (response && response.success) {
+                    this.showNotification('Alarm acknowledged', 'success');
+                    this.loadAlarms();
+                }
+            }
+            
+            updateChartRange(hours) {
+                // Update chart options based on range
+                // Implementation depends on your data structure
+            }
+            
+            showNotification(message, type = 'info', title = 'Notification') {
+                const toast = new bootstrap.Toast(document.getElementById('notification-toast'));
+                
+                document.getElementById('toast-title').textContent = title;
+                document.getElementById('toast-message').textContent = message;
+                document.getElementById('toast-time').textContent = new Date().toLocaleTimeString();
+                
+                // Set color based on type
+                const header = document.querySelector('#notification-toast .toast-header');
+                header.className = `toast-header bg-dark ${type === 'error' ? 'border-danger' : type === 'warning' ? 'border-warning' : 'border-yellow'}`;
+                document.getElementById('toast-title').className = `me-auto ${type === 'error' ? 'text-danger' : type === 'warning' ? 'text-warning' : 'text-yellow'}`;
+                
+                toast.show();
+            }
+            
+            handleUnauthorized() {
+                this.sessionId = null;
+                this.userRole = 'guest';
+                document.getElementById('username').textContent = 'Guest';
+                this.showNotification('Session expired, please login again', 'warning');
+                new bootstrap.Modal(document.getElementById('loginModal')).show();
+            }
+        }
+        
+        // Initialize dashboard when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dashboard = new EnergyDashboard();
+        });
+    </script>
+</body>
+</html>
