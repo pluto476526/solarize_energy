@@ -6,11 +6,15 @@
 #include <time.h>
 
 // System-wide constants
-#define MAX_PV_STRINGS         4
 #define MAX_BATTERY_BANKS      4
 #define MAX_CONTROLLABLE_LOADS 12
 #define MAX_IRRIGATION_ZONES   8
 #define MAX_EV_CHARGERS        2
+
+#define MAX_PV_STRINGS         4
+#define DEFAULT_PV_VOLTAGE     0.0
+#define DEFAULT_PV_CURRENT     0.0
+
 
 // System operating modes
 typedef enum {
@@ -46,6 +50,28 @@ typedef enum {
     IRRIGATION_MANUAL,         // Manual control
     IRRIGATION_OFF             // Irrigation disabled
 } irrigation_mode_t;
+
+// Error and alarm codes
+typedef enum {
+    ALARM_GRID_FAILURE = 0,
+    ALARM_BATTERY_OVER_TEMP,
+    ALARM_BATTERY_LOW_SOC,
+    ALARM_PV_DISCONNECT,
+    ALARM_OVERLOAD,
+    ALARM_COMM_FAILURE,
+    ALARM_IRRIGATION_FAULT,
+    ALARM_EV_CHARGER_FAULT
+} alarm_code_t;
+
+// Warning codes
+typedef enum {
+    WARNING_BATTERY_HIGH_TEMP = 0,
+    WARNING_BATTERY_MID_SOC,
+    WARNING_PV_LOW_PRODUCTION,
+    WARNING_GRID_UNSTABLE,
+    WARNING_HIGH_LOAD,
+    WARNING_IRRIGATION_SKIPPED
+} warning_code_t;
 
 // Real-time measurements structure
 typedef struct {
@@ -84,8 +110,8 @@ typedef struct {
     bool critical_loads_on;     // Critical loads status
     
     soc_category_t battery_soc_category; // Battery SOC category
-    uint8_t alarms;             // Bitmask of active alarms
-    uint8_t warnings;           // Bitmask of active warnings
+    uint8_t alarms;                      // Bitmask of active alarms
+    uint8_t warnings;                    // Bitmask of active warnings
     
     time_t last_mode_change;    // When mode was last changed
     time_t uptime;              // System uptime in seconds
@@ -94,38 +120,16 @@ typedef struct {
 // Control commands structur
 typedef struct {
     double battery_setpoint;     // Battery power setpoint (W)
-    bool pv_curtail;            // PV curtailment active
-    double pv_curtail_percent;  // PV curtailment percentage
+    bool pv_curtail;             // PV curtailment active
+    double pv_curtail_percent;   // PV curtailment percentage
     
-    bool load_shed[MAX_CONTROLLABLE_LOADS]; // Load shed commands
-    bool irrigation_enable[MAX_IRRIGATION_ZONES]; // Irrigation zone control
-    double ev_charge_rate[MAX_EV_CHARGERS]; // EV charge rate setpoints
+    bool load_shed[MAX_CONTROLLABLE_LOADS];         // Load shed commands
+    bool irrigation_enable[MAX_IRRIGATION_ZONES];   // Irrigation zone control
+    double ev_charge_rate[MAX_EV_CHARGERS];         // EV charge rate setpoints
     
-    bool grid_connect;          // Command to connect to grid
-    bool island;               // Command to island from grid
+    bool grid_connect;                              // Command to connect to grid
+    bool island;                                    // Command to island from grid
 } control_commands_t;
-
-// Error and alarm codes
-typedef enum {
-    ALARM_GRID_FAILURE = 0,
-    ALARM_BATTERY_OVER_TEMP,
-    ALARM_BATTERY_LOW_SOC,
-    ALARM_PV_DISCONNECT,
-    ALARM_OVERLOAD,
-    ALARM_COMM_FAILURE,
-    ALARM_IRRIGATION_FAULT,
-    ALARM_EV_CHARGER_FAULT
-} alarm_code_t;
-
-// Warning codes
-typedef enum {
-    WARNING_BATTERY_HIGH_TEMP = 0,
-    WARNING_BATTERY_MID_SOC,
-    WARNING_PV_LOW_PRODUCTION,
-    WARNING_GRID_UNSTABLE,
-    WARNING_HIGH_LOAD,
-    WARNING_IRRIGATION_SKIPPED
-} warning_code_t;
 
 // Load definition structure
 typedef struct {
@@ -179,15 +183,21 @@ typedef struct {
 // Battery bank description (one physical bank)
 typedef struct {
     char bank_id[32];
-    double nominal_voltage;     // V (e.g. 48.0)
-    int cells_in_series;           // cells in series (S)
-    int parallel_strings;       // parallel strings (P)
-    double capacity_wh;         // nominal energy per bank in Wh (e.g. 10000 Wh)
-    double max_charge_power;    // W
-    double max_discharge_power; // W
+    double nominal_voltage;
+    int cells_in_series;
+    int parallel_strings;
+    double capacity_wh;
+    double max_charge_power;
+    double max_discharge_power;
     int cycle_count;
     time_t last_full_charge_ts;
+    double health_percent;
+    double temperature_c;
+    double bank_soc;  /* Individual bank SOC */
+    bool enabled;
+    bool balancing_active;
 } battery_bank_t;
+
 
 // System config structure
 typedef struct {

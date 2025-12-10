@@ -52,7 +52,7 @@ int controller_init(system_controller_t* ctrl, const system_config_t* config) {
 
     /* System status defaults */
     ctrl->status.mode = MODE_NORMAL;
-    ctrl->status.grid_available = true;
+    ctrl->status.grid_available = false;
     ctrl->status.grid_stable = true;
     ctrl->status.battery_available = true;
     ctrl->status.pv_available = true;
@@ -132,6 +132,7 @@ int controller_run_cycle(system_controller_t* ctrl) {
     /* Periodic logging (every 10 cycles) */
     if ((ctrl->cycle_count % 10) == 0) {
         controller_log_status(ctrl);
+        pv_log_status(&ctrl->pv_system);
         battery_log_status(&ctrl->battery_system);
         loads_log_status(&ctrl->load_manager);
     }
@@ -242,66 +243,66 @@ void controller_determine_mode(system_controller_t* ctrl) {
     ctrl->status.mode = new_mode;
 }
 
-/* High-level optimizer that issues subsystem commands */
+// High-level optimizer that issues subsystem commands
 void controller_optimize_energy_flow(system_controller_t* ctrl) {
     if (!ctrl) return;
 
     double total_generation = ctrl->measurements.pv_power_total;
     double total_consumption = ctrl->measurements.load_power_total +
-                               ctrl->measurements.irrigation_power +
-                               ctrl->measurements.ev_charging_power;
+        ctrl->measurements.irrigation_power + ctrl->measurements.ev_charging_power;
 
     double available_power = total_generation;
     double battery_soc = ctrl->measurements.battery_soc;
     bool grid_available = ctrl->status.grid_available;
 
-    /* Reset output commands */
+    // Reset output commands
     memset(&ctrl->commands, 0, sizeof(control_commands_t));
 
-    /* Battery control */
+    // Battery control
     if (total_generation > total_consumption) {
         double excess = total_generation - total_consumption;
         battery_manage_charging(&ctrl->battery_system, excess, total_consumption);
 
         if (battery_soc > 90.0 && excess > 100.0) {
-            /* Gentle curtailment calculation, clamp to safe range */
+            // Gentle curtailment calculation, clamp to safe range
             double curtail_percent = fmin((battery_soc - 90.0) * 5.0, 50.0);
             pv_apply_curtailment(&ctrl->pv_system, curtail_percent);
             ctrl->commands.pv_curtail = true;
             ctrl->commands.pv_curtail_percent = curtail_percent;
         }
+
     } else {
         double deficit = total_consumption - total_generation;
         battery_manage_discharging(&ctrl->battery_system, deficit, grid_available);
     }
 
-    /* Load shedding logic */
+    // Load shedding logic
     loads_manage_shedding(&ctrl->load_manager, available_power, total_consumption,
-                          ctrl->measurements.battery_soc, grid_available);
+        ctrl->measurements.battery_soc, grid_available);
 
-    /* Propagate load shed flags to commands */
+    // Propagate load shed flags to commands
     for (int i = 0; i < MAX_CONTROLLABLE_LOADS; i++) {
         ctrl->commands.load_shed[i] = (ctrl->load_manager.load_states[i] == LOAD_STATE_SHED);
     }
 
-    /* Agriculture and EV decisions */
+    // Agriculture and EV decisions
     agriculture_manage_irrigation(&ctrl->agriculture_system, available_power,
-                                  ctrl->measurements.battery_soc, grid_available);
+        ctrl->measurements.battery_soc, grid_available);
+    
     ev_manage_charging(&ctrl->ev_system, available_power, ctrl->measurements.battery_soc, grid_available);
 
-    /* Grid connect decision */
+    // Grid connect decision
     ctrl->commands.grid_connect = grid_available &&
-                                  (ctrl->status.mode == MODE_NORMAL || ctrl->status.mode == MODE_MAINTENANCE);
+        (ctrl->status.mode == MODE_NORMAL || ctrl->status.mode == MODE_MAINTENANCE);
 
     ctrl->commands.island = !grid_available ||
-                            ctrl->status.mode == MODE_ISLAND ||
-                            ctrl->status.mode == MODE_CRITICAL;
+        ctrl->status.mode == MODE_ISLAND || ctrl->status.mode == MODE_CRITICAL;
 
-    /* Set battery setpoint to current measurement by default (subsystems may override) */
+    // Set battery setpoint to current measurement by default
     ctrl->commands.battery_setpoint = ctrl->measurements.battery_power;
 }
 
-/* Update grid connection status (simulation of action effects) */
+// Update grid connection status (simulation of action effects)
 void controller_manage_grid_connection(system_controller_t* ctrl) {
     if (!ctrl) return;
 
@@ -371,12 +372,13 @@ void controller_handle_faults(system_controller_t* ctrl) {
 void controller_update_statistics(system_controller_t* ctrl) {
     if (!ctrl) return;
 
-    /* compute dt from control_interval or measured elapsed since last cycle */
+    // compute dt from control_interval or measured elapsed since last cycle
     double dt = ctrl->control_interval;
-    /* if a more accurate elapsed time is available, the caller can populate it later */
-    /* keep using control_interval for backward compatibility */
+    
+    // if a more accurate elapsed time is available, the caller can populate it later
+    // keep using control_interval for backward compatibility
 
-    /* Update energy totals (W * s -> kWh) */
+    // Update energy totals (W * s -> kWh)
     ctrl->statistics.pv_energy_total += (ctrl->measurements.pv_power_total * dt) / 3600.0 / 1000.0;
 
     if (ctrl->measurements.grid_power > 0) {
@@ -385,14 +387,15 @@ void controller_update_statistics(system_controller_t* ctrl) {
         ctrl->statistics.grid_export_total += (fabs(ctrl->measurements.grid_power) * dt) / 3600.0 / 1000.0;
     }
 
-    /* battery_power convention: negative = charging, positive = discharging
-       convert to absolute energy values accordingly */
+    // battery_power convention: negative = charging, positive = discharging
+    // convert to absolute energy values accordingly
     if (ctrl->measurements.battery_power < 0.0) {
         ctrl->statistics.battery_charge_total += (fabs(ctrl->measurements.battery_power) * dt) / 3600.0 / 1000.0;
     } else {
         ctrl->statistics.battery_discharge_total += (ctrl->measurements.battery_power * dt) / 3600.0 / 1000.0;
     }
 
+    LOG_DEBUG("battery_power: %f", ctrl->measurements.battery_voltage);
     ctrl->statistics.load_energy_total += (ctrl->measurements.load_power_total * dt) / 3600.0 / 1000.0;
     ctrl->statistics.irrigation_energy_total += (ctrl->measurements.irrigation_power * dt) / 3600.0 / 1000.0;
     ctrl->statistics.ev_charge_energy_total += (ctrl->measurements.ev_charging_power * dt) / 3600.0 / 1000.0;
@@ -444,7 +447,7 @@ void controller_log_status(system_controller_t* ctrl) {
 void controller_emergency_shutdown(system_controller_t* ctrl) {
     if (!ctrl) return;
 
-    printf("[EMERGENCY] Safety limits exceeded! Initiating shutdown...\n");
+    LOG_WARNING("[EMERGENCY] Safety limits exceeded! Initiating shutdown...\n");
 
     /* Force all loads OFF (shed) */
     for (int i = 0; i < MAX_CONTROLLABLE_LOADS; i++) {
@@ -485,7 +488,7 @@ bool controller_check_safety_limits(system_controller_t* ctrl) {
 
     /* Battery temperature */
     if (ctrl->measurements.battery_temp > ctrl->max_battery_temp) {
-        printf("[SAFETY] Battery temperature exceeded: %.1f°C > %.1f°C\n",
+        LOG_ERROR("[SAFETY] Battery temperature exceeded: %.1f°C > %.1f°C\n",
                ctrl->measurements.battery_temp, ctrl->max_battery_temp);
         return false;
     }
@@ -495,21 +498,21 @@ bool controller_check_safety_limits(system_controller_t* ctrl) {
                          ctrl->measurements.irrigation_power +
                          ctrl->measurements.ev_charging_power;
     if (total_power > ctrl->max_total_power) {
-        printf("[SAFETY] Total power exceeded: %.0f W > %.0f W\n",
+        LOG_ERROR("[SAFETY] Total power exceeded: %.0f W > %.0f W\n",
                total_power, ctrl->max_total_power);
         return false;
     }
 
     /* Load-specific cap */
     if (ctrl->measurements.load_power_total > ctrl->max_load_power) {
-        printf("[SAFETY] Load power exceeded: %.0f W > %.0f W\n",
+        LOG_ERROR("[SAFETY] Load power exceeded: %.0f W > %.0f W\n",
                ctrl->measurements.load_power_total, ctrl->max_load_power);
         return false;
     }
 
     /* Battery voltage sanity check */
     if (ctrl->measurements.battery_voltage < 20.0 || ctrl->measurements.battery_voltage > 80.0) {
-        printf("[SAFETY] Battery voltage out of range: %.1f V\n", ctrl->measurements.battery_voltage);
+        LOG_ERROR("[SAFETY] Battery voltage out of range: %.1f V\n", ctrl->measurements.battery_voltage);
         return false;
     }
 
@@ -521,5 +524,5 @@ void controller_cleanup(system_controller_t* ctrl) {
     if (!ctrl) return;
 
     memset(&ctrl->commands, 0, sizeof(control_commands_t));
-    printf("Controller shutdown complete.\n");
+    LOG_INFO("Controller shutdown complete.\n");
 }

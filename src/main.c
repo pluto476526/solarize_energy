@@ -132,11 +132,9 @@ int main(int argc, char *argv[]) {
     
     while (running) {
         // Run control cycle
-        if (controller_run_cycle(system_ctrl) != 0) {
+        if (controller_run_cycle(system_ctrl) != 0)
             LOG_WARNING("Controller cycle %lu encountered an issue", cycle_count);
-        } else {
-            LOG_DEBUG("Completed control cycle %lu", cycle_count);
-        }
+
         cycle_count++;
         
         // Sleep for control interval

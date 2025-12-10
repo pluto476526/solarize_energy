@@ -87,7 +87,7 @@
     },
     {
       "id": "water_heater",
-      "rated_power": 13000.0,
+      "rated_power": 300.0,
       "priority": 3,
       "is_deferrable": true,
       "is_sheddable": true,
