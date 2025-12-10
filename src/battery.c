@@ -53,12 +53,12 @@ static double ocv_to_soc(double cell_v, const ocv_point_t* table, int len) {
     return 0.0;
 }
 
-/* Initialize battery system with sane production defaults */
+// Initialize battery system with sane production defaults
 int battery_init(battery_system_t* bat, const system_config_t* config) {
     if (!bat) return -1;
     memset(bat, 0, sizeof(*bat));
 
-    /* Default to LFP chemistry and multi-bank defaults */
+    // Default to LFP chemistry and multi-bank defaults
     bat->chemistry = BAT_CHEM_LFP;
     bat->bank_count = MAX_BATTERY_BANKS;
     bat->active_bank_count = MAX_BATTERY_BANKS;
@@ -92,11 +92,11 @@ int battery_init(battery_system_t* bat, const system_config_t* config) {
     bat->soc_estimated = 50.0;
     bat->soc_smoothed = 50.0;
     bat->nominal_voltage = 48.0;
-    bat->capacity_remaining_wh = bat->capacity_nominal_wh * 0.5;
+    bat->capacity_remaining_wh = 50.0;
     bat->health_percent = 100.0;
 
-    /* Limits — conservative factory defaults; can be tuned at runtime */
-    /* Convert power limits to currents using typical nominal voltage */
+    // Limits — conservative factory defaults; can be tuned at runtime
+    // Convert power limits to currents using typical nominal voltage
     double pack_v = bat->banks[0].nominal_voltage;
     bat->max_charge_power_w = bat->capacity_nominal_wh > 0 ? (bat->banks[0].max_charge_power * bat->bank_count) : 0.0;
     bat->max_discharge_power_w = bat->capacity_nominal_wh > 0 ? (bat->banks[0].max_discharge_power * bat->bank_count) : 0.0;
@@ -104,11 +104,11 @@ int battery_init(battery_system_t* bat, const system_config_t* config) {
     bat->max_charge_current_a = bat->max_charge_power_w / pack_v;
     bat->max_discharge_current_a = bat->max_discharge_power_w / pack_v;
 
-    /* Timing defaults */
-    bat->absorption_duration_s = 2.0 * 3600.0;  /* 2 hours */
-    bat->float_duration_s = 24.0 * 3600.0;      /* 24 hours */
+    // Timing defaults
+    bat->absorption_duration_s = 2.0 * 3600.0;  // 2 hours
+    bat->float_duration_s = 24.0 * 3600.0;      // 24 hours
 
-    /* Misc */
+    // Misc
     bat->temperature_c = 25.0;
     bat->ambient_temperature_c = 25.0;
     bat->cooling_active = false;
@@ -117,34 +117,34 @@ int battery_init(battery_system_t* bat, const system_config_t* config) {
     bat->previous_state = BATTERY_STATE_IDLE;
     bat->charge_stage = CHARGE_BULK;
 
-    /* Balancing */
+    // Balancing
     bat->balancing_enabled = true;
     bat->max_cell_voltage = 0.0;
     bat->min_cell_voltage = 0.0;
     bat->cell_voltage_spread = 0.0;
 
-    /* SOC fusion parameters */
-    bat->soc_voltage_weight = 0.4;   /* weight for voltage-based (0..1) */
-    bat->soc_smoothing_alpha = 0.10; /* smoothing factor */
+    // SOC fusion parameters
+    bat->soc_voltage_weight = 0.4;   // weight for voltage-based (0..1)
+    bat->soc_smoothing_alpha = 0.10; // smoothing factor
     bat->min_operating_soc = 5.0;
     bat->max_operating_soc = 98.0;
     
-    /* Charge parameters */
+    // Charge parameters
     bat->bulk_charge_soc_limit = 85.0;
     bat->absorption_charge_soc_limit = 95.0;
     bat->equalize_voltage = 3.65;
     bat->float_voltage = 3.40;
     bat->coulomb_efficiency = 0.99;
-    bat->self_discharge_rate = 0.33; /* % per day for LFP */
+    bat->self_discharge_rate = 0.33; // % per day for LFP
 
-    /* Clear faults */
+    // Clear faults
     bat->overvoltage_fault = bat->undervoltage_fault = false;
     bat->overcurrent_fault = bat->overtemperature_fault = false;
     bat->last_fault_reason[0] = '\0';
     bat->fault_timestamp = 0;
     bat->fault_clear_attempts = 0;
     
-    /* Cycle counting */
+    // Cycle counting
     bat->cycle_count = 0;
     bat->deep_cycle_count = 0;
     bat->cycle_depth_accumulated = 0.0;
@@ -166,9 +166,12 @@ void battery_update_measurements(battery_system_t* bat, system_measurements_t* m
         bat->temperature_c = measurements->battery_temp;
     }
 
+    if (bat->capacity_remaining_wh)
+        measurements->battery_power = bat->capacity_remaining_wh;
+
     // Compute battery power (W) using measured voltage and current
     measurements->battery_voltage = bat->nominal_voltage;
-    measurements->battery_power = measurements->battery_voltage * measurements->battery_current;
+    //measurements->battery_power = measurements->battery_voltage * measurements->battery_current;
     measurements->timestamp = measurements->timestamp ? measurements->timestamp : time(NULL);
 
     // Track energy flows
@@ -195,10 +198,8 @@ void battery_update_measurements(battery_system_t* bat, system_measurements_t* m
     battery_thermal_management(bat);
 
     // Auto-clear transient faults after 5 minutes
-    if (bat->state == BATTERY_STATE_FAULT && 
-        difftime(time(NULL), bat->fault_timestamp) > 300) {
+    if (bat->state == BATTERY_STATE_FAULT && difftime(time(NULL), bat->fault_timestamp) > 300)
         battery_clear_faults(bat);
-    }
 }
 
 // Compute SOC (coulomb + voltage fusion)
@@ -317,8 +318,7 @@ int battery_calculate_soc(battery_system_t* bat, system_measurements_t* measurem
 
     // Update other fields
     measurements->battery_soc = smoothed;
-    bat->capacity_remaining_wh =
-        (smoothed / 100.0) * bat->capacity_nominal_wh;
+    bat->capacity_remaining_wh = (smoothed / 100.0) * bat->capacity_nominal_wh;
 
     for (int i = 0; i < bat->active_bank_count; i++)
         bat->banks[i].bank_soc = smoothed;
@@ -381,6 +381,7 @@ void battery_manage_charging(battery_system_t* bat, double available_power, doub
             bat->absorption_start_ts = time(NULL);
             LOG_INFO("Starting absorption charge at %.1f%% SOC", bat->soc_smoothed);
         }
+
         bat->charge_stage = CHARGE_ABSORPTION;
 
         // Ramp down power during absorption
@@ -414,20 +415,18 @@ void battery_manage_charging(battery_system_t* bat, double available_power, doub
         }
     }
 
-    // Temperature derating - FIXED: Allow charging at low temps with reduced power
+    // Temperature derating
     if (bat->temperature_c > 40.0) {
         double derate = 1.0 - ((bat->temperature_c - 40.0) / 20.0);
-        derate = fmax(derate, 0.3); /* Minimum 30% at 60°C */
+        derate = fmax(derate, 0.3); // Minimum 30% at 60°C
         charge_power *= derate;
     } else if (bat->temperature_c < 0.0) {
-        /* CRITICAL FIX: Allow SOME charging below freezing for emergency */
-        if (bat->soc_smoothed < 10.0) {
+        // Allow SOME charging below freezing for emergency
+        if (bat->soc_smoothed < 10.0)
             // Emergency charging at reduced rate
             charge_power *= 0.1; // 10% of normal
-            LOG_WARNING("Emergency cold charging at %.1f°C", bat->temperature_c);
-        } else {
+        else
             charge_power = 0.0; // normal no charge below freezing
-        }
     } else if (bat->temperature_c < 10.0) {
         double derate = 0.1 + (bat->temperature_c / 10.0 * 0.9); // 10-100% linear
         charge_power *= derate;
@@ -448,7 +447,7 @@ void battery_manage_charging(battery_system_t* bat, double available_power, doub
         bat->accumulated_ah += delta_ah;
     }
 
-    /* CRITICAL FIX: Set actual charge power that will be used by controller */
+    // Actual charge power that will be used by controller
     // In a real system, this would set an actual output
     (void)charge_power; // Avoid unused warning
 }
@@ -460,20 +459,18 @@ void battery_manage_discharging(battery_system_t* bat, double load_power, bool g
     double max_dis = battery_calculate_max_discharge(bat);
     bool should_discharge = false;
 
-    if (!grid_available) {
+    if (!grid_available)
         should_discharge = (load_power > 10.0) && 
-                          (bat->soc_smoothed > bat->min_operating_soc + 5.0);
-    } else {
+            (bat->soc_smoothed > bat->min_operating_soc + 5.0);
+    else
         // Grid-connected: discharge for peak shaving or time-of-use optimization
         should_discharge = (bat->soc_smoothed > 70.0) && 
-                          (load_power > 100.0) &&
-                          (bat->soc_smoothed > bat->min_operating_soc);
-    }
+            (load_power > 100.0) && (bat->soc_smoothed > bat->min_operating_soc);
 
     if (!should_discharge) {
-        if (bat->state == BATTERY_STATE_DISCHARGING) {
+        if (bat->state == BATTERY_STATE_DISCHARGING)
             bat->previous_state = bat->state;
-        }
+
         bat->state = BATTERY_STATE_IDLE;
         return;
     }
@@ -501,10 +498,10 @@ void battery_manage_discharging(battery_system_t* bat, double load_power, bool g
 
     // Protect minimum SOC
     double hours_to_min_soc = (bat->soc_smoothed - bat->min_operating_soc) / 100.0 *
-                              bat->capacity_nominal_wh / discharge_power;
+        bat->capacity_nominal_wh / discharge_power;
     
-    if (hours_to_min_soc < 0.5) { /* Less than 30 minutes to minimum SOC */
-        discharge_power *= 0.5; /* Reduce power */
+    if (hours_to_min_soc < 0.5) {   // Less than 30 minutes to minimum SOC
+        discharge_power *= 0.5;     // Reduce power
     }
 
     bat->total_discharge_wh += discharge_power * (1.0 / 3600.0); // placeholder
@@ -518,7 +515,6 @@ double battery_calculate_max_charge(battery_system_t* bat) {
     
     double max_p = bat->max_charge_power_w;
     
-    /* CRITICAL FIX: At very low SOC, allow MORE charging, not less */
     if (bat->soc_smoothed < 20.0) {
         // Emergency mode: allow full charging at very low SOC
         // Don't reduce power when battery is critically low
@@ -533,24 +529,21 @@ double battery_calculate_max_charge(battery_system_t* bat) {
     // Temperature derating - FIXED
     if (bat->temperature_c > 45.0) {
         double derate = 1.0 - ((bat->temperature_c - 45.0) / 20.0);
-        derate = fmax(derate, 0.3); /* Minimum 30% at 65°C */
+        derate = fmax(derate, 0.3); // Minimum 30% at 65°C
         max_p *= derate;
-        LOG_DEBUG("Temperature derating: %.1f°C -> factor=%.2f", 
-                 bat->temperature_c, derate);
+        LOG_DEBUG("Temperature derating: %.1f°C -> factor=%.2f", bat->temperature_c, derate);
     } else if (bat->temperature_c < 0.0) {
         // Emergency charging allowed at very low SOC even below freezing
         if (bat->soc_smoothed < 10.0) {
             max_p *= 0.1; // 10% emergency charge
-            LOG_WARNING("Emergency cold charging at %.1f°C, SOC=%.1f%%",
-                    bat->temperature_c, bat->soc_smoothed);
+            LOG_WARNING("Emergency cold charging at %.1f°C, SOC=%.1f%%", bat->temperature_c, bat->soc_smoothed);
         } else {
             max_p = 0.0; // Normal: no charge below freezing
         }
     } else if (bat->temperature_c < 10.0) {
         double derate = bat->temperature_c / 10.0; // Linear from 0-100%
         max_p *= derate;
-        LOG_DEBUG("Cold temperature derating: %.1f°C -> factor=%.2f",
-                 bat->temperature_c, derate);
+        LOG_DEBUG("Cold temperature derating: %.1f°C -> factor=%.2f", bat->temperature_c, derate);
     }
     
     // Force at least 100W when battery is low
@@ -590,7 +583,7 @@ bool battery_check_limits(battery_system_t* bat, system_measurements_t* measurem
     if (s <= 0) s = DEFAULT_BANK_SERIES_CELLS;
     double cell_v = (s > 0) ? (measurements->battery_voltage / (double)s) : 0.0;
 
-    /* chemistry-specific thresholds with hysteresis */
+    // chemistry-specific thresholds with hysteresis
     double cell_v_max = 3.65, cell_v_min = 2.5;
     double cell_v_max_hyst = 3.60, cell_v_min_hyst = 2.6;
     
@@ -607,7 +600,7 @@ bool battery_check_limits(battery_system_t* bat, system_measurements_t* measurem
             break;
     }
 
-    /* Check overvoltage with hysteresis */
+    // Check overvoltage with hysteresis
     if (cell_v > cell_v_max) {
         bat->overvoltage_fault = true;
         if (!last_overvoltage) {
@@ -620,7 +613,7 @@ bool battery_check_limits(battery_system_t* bat, system_measurements_t* measurem
     }
     last_overvoltage = bat->overvoltage_fault;
 
-    /* Check undervoltage with hysteresis */
+    // Check undervoltage with hysteresis
     if (cell_v < cell_v_min) {
         bat->undervoltage_fault = true;
         if (!last_undervoltage) {
@@ -628,9 +621,10 @@ bool battery_check_limits(battery_system_t* bat, system_measurements_t* measurem
             bat->fault_timestamp = time(NULL);
         }
         fault = true;
-    } else if (cell_v > cell_v_min_hyst && last_undervoltage) {
+    
+    } else if (cell_v > cell_v_min_hyst && last_undervoltage)
         bat->undervoltage_fault = false;
-    }
+    
     last_undervoltage = bat->undervoltage_fault;
 
     // Current limit
@@ -643,23 +637,25 @@ bool battery_check_limits(battery_system_t* bat, system_measurements_t* measurem
 
     if (measurements->battery_current > charge_threshold) {
         bat->overcurrent_fault = true;
+        fault = true;
+
         if (!last_overcurrent) {
             strncpy(bat->last_fault_reason, "Charge overcurrent", sizeof(bat->last_fault_reason)-1);
             bat->fault_timestamp = time(NULL);
         }
-        fault = true;
+
     } else if (measurements->battery_current < -discharge_threshold) {
         bat->overcurrent_fault = true;
+        fault = true;
+
         if (!last_overcurrent) {
             strncpy(bat->last_fault_reason, "Discharge overcurrent", sizeof(bat->last_fault_reason)-1);
             bat->fault_timestamp = time(NULL);
         }
-        fault = true;
-    } else if (measurements->battery_current < charge_hyst && 
-               measurements->battery_current > -discharge_hyst &&
-               last_overcurrent) {
+
+    } else if (measurements->battery_current < charge_hyst && measurements->battery_current > -discharge_hyst && last_overcurrent)
         bat->overcurrent_fault = false;
-    }
+
     last_overcurrent = bat->overcurrent_fault;
 
     // Temperature
@@ -668,14 +664,16 @@ bool battery_check_limits(battery_system_t* bat, system_measurements_t* measurem
     
     if (measurements->battery_temp > temp_threshold) {
         bat->overtemperature_fault = true;
+        fault = true;
+
         if (!last_overtemperature) {
             strncpy(bat->last_fault_reason, "Overtemperature", sizeof(bat->last_fault_reason)-1);
             bat->fault_timestamp = time(NULL);
         }
-        fault = true;
-    } else if (measurements->battery_temp < temp_hyst && last_overtemperature) {
+
+    } else if (measurements->battery_temp < temp_hyst && last_overtemperature)
         bat->overtemperature_fault = false;
-    }
+
     last_overtemperature = bat->overtemperature_fault;
 
     if (fault && bat->state != BATTERY_STATE_FAULT) {
@@ -723,7 +721,7 @@ void battery_equalize(battery_system_t* bat) {
     }
 }
 
-/* Print battery status */
+// Print battery status
 void battery_log_status(const battery_system_t* bat) {
     if (!bat) return;
 

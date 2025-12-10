@@ -38,7 +38,7 @@ int loads_init(load_manager_t* lm, const system_config_t* config) {
         }
     }
 
-    lm->shedding_active = false;
+    lm->shedding_active = true;
     lm->shed_power_target = 0;
     lm->shedding_start_time = 0;
     lm->deferred_power = 0;
@@ -58,7 +58,7 @@ void loads_update_measurements(load_manager_t* lm, system_measurements_t* measur
     double deferrable_power = 0;
     double total_power = 0;
     
-    /* Update power measurements based on load states */
+    // Update power measurements based on load states
     for (int i = 0; i < lm->load_count; i++) {
         if (lm->load_states[i] == LOAD_STATE_ON) {
             double load_power = lm->loads[i].rated_power;
@@ -298,11 +298,8 @@ void loads_log_status(const load_manager_t* lm) {
         const load_definition_t* load = &lm->loads[i];
         
         printf("%-20s %-9d %-9s %-9.0f %-9s\n",
-               load->id,
-               load->priority,
-               load_state_str[lm->load_states[i]],
-               load->rated_power,
-               load->is_deferrable ? "YES" : "NO");
+               load->id, load->priority, load_state_str[lm->load_states[i]],
+               load->rated_power, load->is_deferrable ? "YES" : "NO");
     }
     printf("=============================\n");
 }
